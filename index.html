@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최고 평점 영화 - 전호영</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        background-color: #f8f9fa;
+      }
+      a:link {
+        text-decoration: none;
+      }
+      a:visited,
+      a:active {
+        color: inherit;
+      }
+      .nav {
+        width: auto;
+        height: 150px;
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .nav h1 {
+        margin: 0 0;
+        cursor: pointer;
+      }
+
+      .nav small {
+        color: gray;
+        font-size: 13px;
+      }
+
+      .divider {
+        display: flex;
+        width: auto;
+        height: 80px;
+        border-bottom: 1px solid black;
+        align-items: center;
+        justify-content: center;
+      }
+      label {
+        font-size: 25px;
+      }
+      .search input {
+        margin-left: 20px;
+        min-width: 200px;
+        height: 30px;
+      }
+      input[type="text" i] {
+        writing-mode: horizontal-tb;
+
+        padding-inline: 2px;
+      }
+      input {
+        cursor: text;
+        border-width: 2px;
+        padding: 0;
+      }
+
+      .search button {
+        margin-left: 10px;
+        padding: 5px;
+      }
+      button {
+        padding-block: 1px;
+        padding-inline: 6px;
+        border-width: 2px;
+      }
+      .movie-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+      }
+
+      .movie-card {
+        width: 260px;
+        height: 500px;
+        margin: 20px;
+        padding: 20px;
+        justify-self: center;
+        background-color: bisque;
+        cursor: pointer;
+        user-select: none;
+        overflow: scroll;
+        border-radius: 10px;
+      }
+
+      .movie-card::-webkit-scrollbar {
+        display: none;
+      }
+      .movie-card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>
+        <a href="./my-index.html">내배캠 최고 평점 영화 콜렉션</a>
+      </h1>
+      <small>👆 click and check my extra work</small>
+    </div>
+    <div class="divider">
+      <form class="search">
+        <label>영화 검색 :</label>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="영화 제목을 검색해 보세요"
+        />
+        <button type="submit" id="searchBtn">검색</button>
+      </form>
+    </div>
+
+    <div class="movie-list"></div>
+    <script src="./main.js"></script>
+  </body>
+</html>

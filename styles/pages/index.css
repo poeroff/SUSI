@@ -1,0 +1,215 @@
+body {
+  background-color: #000000;
+  min-height: 100vh;
+}
+
+section {
+  height: 100vh;
+}
+
+.background {
+  background-image: url("../../assets/imgs/chungkin1.jpeg");
+  background-position: center;
+  background-size: cover;
+  height: 80%;
+}
+
+.main-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  color: white;
+  margin-top: 80px;
+}
+
+.text-center a:link {
+  text-decoration: none;
+}
+
+.text-center a:visited,
+a:active {
+  color: inherit;
+}
+
+/* Carousel */
+
+.wrapper {
+  max-width: 1700px;
+  width: 100%;
+  position: relative;
+}
+
+.wrapper i {
+  z-index: 2;
+  height: 50px;
+  width: 50px;
+  background: #fff;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  font-size: 1.25rem;
+  transform: translateY(-50%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.wrapper i:first-child {
+  left: -22px;
+}
+
+.wrapper i:last-child {
+  right: -22px;
+}
+
+.wrapper .carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  gap: 16px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel :where(.card, .img) {
+  display: flex;
+}
+
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+  user-select: none;
+}
+
+.carousel .card {
+  scroll-snap-align: start;
+  height: 342px;
+  width: 280px;
+  list-style: none;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  padding-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.carousel .card h2 {
+  font-size: larger;
+  font-weight: 700;
+}
+
+.card .img {
+  background: black;
+  width: 148px;
+  height: 208px;
+  padding-bottom: 40px;
+}
+
+.card .img img {
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+  /* 지워보기   */
+  border: 4px solid #fff;
+}
+
+.card h2 {
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 30px 0 5px;
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    grid-auto-columns: 100%;
+  }
+}
+
+.btn-3 {
+  line-height: 39px;
+  padding: 0;
+  background-color: white;
+}
+.btn-3:hover {
+  background: transparent;
+  color: #000;
+}
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: #000;
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: #000;
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
+}

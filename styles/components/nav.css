@@ -1,0 +1,6 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  /* 지울 것 */
+  background-color: #1c1c1c;
+}
