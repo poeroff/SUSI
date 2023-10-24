@@ -1,0 +1,113 @@
+ * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        background-color: #f8f9fa;
+      }
+      a:link {
+        text-decoration: none;
+      }
+      a:visited,
+      a:active {
+        color: inherit;
+      }
+      .nav {
+        width: auto;
+        height: 150px;
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .nav h1 {
+        margin: 0 0;
+        cursor: pointer;
+      }
+
+      .nav small {
+        color: gray;
+        font-size: 13px;
+      }
+
+      .divider {
+        display: flex;
+        width: auto;
+        height: 80px;
+        border-bottom: 1px solid black;
+        align-items: center;
+        justify-content: center;
+      }
+      label {
+        font-size: 25px;
+      }
+      .search input {
+        margin-left: 20px;
+        min-width: 200px;
+        height: 30px;
+      }
+      input[type="text" i] {
+        writing-mode: horizontal-tb;
+
+        padding-inline: 2px;
+      }
+      input {
+        cursor: text;
+        border-width: 2px;
+        padding: 0;
+      }
+
+      .search button {
+        margin-left: 10px;
+        padding: 5px;
+      }
+      button {
+        padding-block: 1px;
+        padding-inline: 6px;
+        border-width: 2px;
+      }
+      .movie-title{
+        text-align: center;
+        font-size: 1vmax;
+        font-weight: bold;
+      
+      }
+
+
+      .movie-list {
+        
+        margin: 0 auto;
+        display: flex;
+        width: 80%;
+        height: 50%;
+        overflow-x: scroll;
+        
+      }
+    
+      .movie-card {
+        margin-right: 2.5%;
+        cursor: pointer;
+      
+      }
+      img{
+        border-radius: 10px;
+        width: 150px;
+        height: 200px;
+      }
+      .movie-list::-webkit-scrollbar {
+        width: 10px;
+      }
+      .movie-list::-webkit-scrollbar-thumb {
+        background-color: #2f3542;
+        border-radius: 10px;
+      }
+      .movie-list::-webkit-scrollbar-track {
+        background-color: grey;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 5px white;
+      }
+    
