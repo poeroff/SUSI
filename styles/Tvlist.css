@@ -1,0 +1,53 @@
+form{
+    margin-top: 5%;
+    margin-bottom: 2.5%;
+    text-align: center;
+    width: 100%;
+ 
+  }
+.TV{
+    margin-top: 5%;
+
+}
+.TV h1{
+    width: 100%;
+    text-align: center;
+    font-size: 5vmax;
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+}
+
+.Tv-list {
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    height: 50%;
+    overflow-x: scroll;
+  }
+
+  .popular_Tv_list {
+    margin: 0 auto;
+   
+    display: none;
+    width: 80%;
+    height: 50%;
+    overflow-x: scroll;
+  }
+
+
+  .Live_Tv-list {
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    height: 50%;
+    overflow-x: scroll;
+  }
+
+
+  .Upcoming_Tv-list {
+    margin: 0 auto;
+   
+    display: none;
+    width: 80%;
+    height: 50%;
+    overflow-x: scroll;
+  }
