@@ -140,3 +140,38 @@ li {
   margin: 0 auto;
   text-align: center;
 }
+.normal-movie h1{
+    text-align: center;
+}
+
+
+.Live-Movie {
+    
+    margin: 0 auto;
+   
+    display: flex;
+    width: 80%;
+    height: 50%;
+    overflow-x: scroll;
+  }
+.Live-movie form{
+    margin-top: 5%;
+    margin-bottom: 2.5%;
+    text-align: center;
+    width: 100%;
+ 
+  }
+.Upcoming-Movie{
+    display: none;
+    margin: 0 auto;
+   
+  
+    width: 80%;
+    height: 50%;
+    overflow-x: scroll;
+
+}
+
+
+
+
