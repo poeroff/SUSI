@@ -22,6 +22,9 @@ form{
     width: 80%;
     height: 50%;
     overflow-x: scroll;
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
   }
 
   .popular_Tv_list {
@@ -31,6 +34,9 @@ form{
     width: 80%;
     height: 50%;
     overflow-x: scroll;
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
   }
 
 
@@ -40,6 +46,9 @@ form{
     width: 80%;
     height: 50%;
     overflow-x: scroll;
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
   }
 
 
@@ -50,4 +59,22 @@ form{
     width: 80%;
     height: 50%;
     overflow-x: scroll;
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+  }
+
+
+  @keyframes slide {
+    0% {
+      opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    
+    }
+    100% {
+        opacity: 1;
+   
+    }
   }

@@ -30,41 +30,46 @@ const getMoiveListByKeywordAndPage = async (keyword, page = 1) => {
 };
 
 const paintCard = (titleParam, overviewParam, poster_path) => {
-  let card = document.createElement("div");
-  card.classList.add("card");
-  let wrapper = document.createElement("div");
-  wrapper.classList.add("wrapper");
-  let poster = document.createElement("div");
-  poster.classList.add("poster");
-  let moviePoster = document.createElement("a");
-  moviePoster.classList.add("movie-poster");
-  moviePoster.classList.add("result");
+  if(poster_path){
+    let card = document.createElement("div");
+    card.classList.add("card");
+    let wrapper = document.createElement("div");
+    wrapper.classList.add("wrapper");
+    let poster = document.createElement("div");
+    poster.classList.add("poster");
+    let moviePoster = document.createElement("a");
+    moviePoster.classList.add("movie-poster");
+    moviePoster.classList.add("result");
+  
+    let details = document.createElement("div");
+    details.classList.add("details");
+    let title = document.createElement("div");
+    title.classList.add("title");
+    let movieTitle = document.createElement("a");
+    movieTitle.classList.add("movie-title");
+    movieTitle.classList.add("result");
+    let releaseDate = document.createElement("span");
+    releaseDate.className = "release_date";
+  
+    let overview = document.createElement("div");
+    movieTitle.innerHTML = `<h2>${titleParam}</h2>`;
+    releaseDate.innerText = "2023.10.24";
+    overview.innerHTML = `<p>${overviewParam}</p>`;
+    moviePoster.innerHTML = `<img src="${IMG_URL + poster_path}" alt="" />`;
+  
+    title.appendChild(movieTitle);
+    title.appendChild(releaseDate);
+    details.appendChild(title);
+    details.appendChild(overview);
+    poster.appendChild(moviePoster);
+    wrapper.appendChild(poster);
+    wrapper.appendChild(details);
+    card.appendChild(wrapper);
+    results.append(card);
 
-  let details = document.createElement("div");
-  details.classList.add("details");
-  let title = document.createElement("div");
-  title.classList.add("title");
-  let movieTitle = document.createElement("a");
-  movieTitle.classList.add("movie-title");
-  movieTitle.classList.add("result");
-  let releaseDate = document.createElement("span");
-  releaseDate.className = "release_date";
+  }
 
-  let overview = document.createElement("div");
-  movieTitle.innerHTML = `<h2>${titleParam}</h2>`;
-  releaseDate.innerText = "2023.10.24";
-  overview.innerHTML = `<p>${overviewParam}</p>`;
-  moviePoster.innerHTML = `<img src="${IMG_URL + poster_path}" alt="" />`;
 
-  title.appendChild(movieTitle);
-  title.appendChild(releaseDate);
-  details.appendChild(title);
-  details.appendChild(overview);
-  poster.appendChild(moviePoster);
-  wrapper.appendChild(poster);
-  wrapper.appendChild(details);
-  card.appendChild(wrapper);
-  results.append(card);
 };
 
 /*

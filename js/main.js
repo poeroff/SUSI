@@ -66,7 +66,7 @@ const paintCard = (moviename, isvalid, backdrop_path, title, id,name) => {
     Popularmovie.classList.add("movie-card");
     Popularmovie.dataset.id = id;
     Popularmovie.innerHTML = `<a href=""><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
-    <h3 class="movie-title">$${isvalid ? name : title}</h3></a>`;
+    <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
     let valid = isvalid ? ".popular_Tv_list" : ".popular_movie";
    
     document.querySelector(valid).append(Popularmovie);

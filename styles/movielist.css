@@ -10,13 +10,35 @@
     width: 80%;
     height: 50%;
     overflow-x: scroll;
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+
+   
   }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    
+    }
+    100% {
+        opacity: 1;
+   
+    }
+  }
+
   .popular_movie{
       margin: 0 auto;
       display: none;
       width: 80%;
       height: 50%;
       overflow-x: scroll;
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
     }
 
   
@@ -49,6 +71,9 @@
       width: 80%;
       height: 50%;
       overflow-x: scroll;
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
     }
  
   .Upcoming-Movie{
@@ -58,6 +83,9 @@
       width: 80%;
       height: 50%;
       overflow-x: scroll;
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
   }
 
   .MOVIE{
@@ -70,5 +98,6 @@
     font-size: 5vmax;
     font-family: 'Alumni Sans Collegiate One', sans-serif;
   }
+
 
   
