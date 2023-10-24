@@ -13,11 +13,6 @@
       src="https://kit.fontawesome.com/be50c7a0af.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/pages/search.css" />
-    <link rel="stylesheet" href="./styles/components/nav.css" />
-
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -28,12 +23,18 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <!-- <link rel="stylesheet" href="styles/pages/movielist.css" /> -->
+    <link rel="stylesheet" href="./styles/seachList.css" />
+    <link rel="stylesheet" href="styles/components/nav.css" />
+
     <title>영화 콜렉션 - 전호영</title>
   </head>
   <body>
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="./my-index.html">Main</a>
+        <a class="navbar-brand" href="./index.html">Main</a>
         <form class="d-flex" role="search">
           <input
             class="form-control me-2 searchInput"
@@ -41,37 +42,72 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <button
-            type="submit"
-            class="btn btn-outline-success searchBtn"
-            href="./movielist.html?"
-          >
-            Search
-          </button>
+          <button class="btn btn-outline-success" id="searchBtn">Search</button>
         </form>
       </div>
     </nav>
 
-    <!-- Youtube Video -->
-    <div class="wrapper">
-      <div class="card mb-3 movie-info" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-12">
-            <div class="card-body">
-              <h5 class="card-title movieTitle"></h5>
-              <small class="movieId"></small>
-              <p class="card-text movieOverview"></p>
-              <p class="card-text">
-                <small class="text-muted released_date"></small>
+    <div class="results">
+      <!-- <div class="card">
+        <div class="wrapper">
+          <div class="poster">
+            <a href="" class="result movie-poster">
+              <img src="./equlizer.jpeg" alt="" />
+            </a>
+          </div>
+          <div class="details">
+            <div class="title">
+              <a href="" class="result movie-title">
+                <h2>제목</h2>
+              </a>
+              <span class="release_date">October 24, 2023</span>
+            </div>
+
+            <div class="overview">
+              <p>
+                Robert McCall finds himself at home in Southern Italy but he
+                discovers his friends are under the control of local crime
+                bosses. As events turn deadly, McCall knows what he has to do:
+                become his friends' protector by taking on the mafia.
               </p>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
+    <!-- <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col" colspan="2">Overview</th>
+          </tr>
+        </thead>
+        <tbody></tbody
+    </div>dy>
+      </table> -->
 
-    <!-- 설명(detail + id) -->
+    <!-- <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item prevPageBtn pageBtn">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item pageNumber">
+          <a class="page-link" href="#" data-id="1">1</a>
+        </li>
+        <li class="page-item pageNumber">
+          <a class="page-link" href="#" data-id="2">2</a>
+        </li>
+        <li class="page-item pageNumber">
+          <a class="page-link" href="#" data-id="3">3</a>
+        </li>
+
+        <li class="page-item nextPageBtn pageBtn">
+          <a class="page-link">Next</a>
+        </li>
+      </ul>
+    </nav> -->
     <script type="module" src="./js/search.js"></script>
-    <script type="module" src="./js/movieInfo.js"></script>
+    <script src="./js/searchList.js"></script>
   </body>
 </html>
