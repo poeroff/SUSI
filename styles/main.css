@@ -110,4 +110,17 @@
         border-radius: 10px;
         box-shadow: inset 0px 0px 5px white;
       }
+      ul{
+        display: flex; 
+        width: 100%;
+        text-align: center;
+        list-style: none;
+       
+      }
+      li{
+        margin: 0 auto;
+        text-align: center;
+      
+      }
+     
     
