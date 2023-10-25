@@ -36,6 +36,7 @@
       width: 80%;
       height: 50%;
       overflow-x: scroll;
+      
       animation-name: slide;
       animation-duration: 1s;
       animation-timing-function: ease-in-out;

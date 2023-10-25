@@ -1,13 +1,13 @@
-@import "movielist.css";
+@import "./Mainpage/movielist.css";
 
 
-@import "Tvlist.css";
+@import "./Mainpage/Tvlist.css";
 
 
-@import "scroll.css"; 
+@import "./Mainpage/scroll.css"; 
 
 
-@import "seachList.css";
+@import "./search/seachList.css";
 
 
 * {
