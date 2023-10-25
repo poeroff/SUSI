@@ -1,12 +1,29 @@
+@import "./Mainpage/movielist.css";
+
+
+@import "./Mainpage/Tvlist.css";
+
+
+@import "./Mainpage/scroll.css"; 
+
+
+@import "./search/seachList.css";
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   min-height: 100vh;
   background-color: #f8f9fa;
+  
 }
+
+
+
 a:link {
   text-decoration: none;
 }
@@ -52,10 +69,12 @@ a:active {
 .row .search {
   display: flex;
   padding: 0;
+
 }
 
 label {
   font-size: 25px;
+  
 }
 .search input {
   flex: 1;
@@ -64,7 +83,7 @@ label {
   margin-left: 20px;
   min-width: 200px;
   background-color: transparent;
-  height: 30px;
+  height: 20px;
   padding: 20px;
   cursor: text;
   border-width: 2px;
@@ -95,82 +114,16 @@ button {
   padding-inline: 6px;
   border-width: 2px;
 }
-.movie-title {
-  text-align: center;
-  font-size: 1vmax;
-  font-weight: bold;
-}
-
-.movie-list {
-  margin: 0 auto;
-  display: flex;
-  width: 80%;
-  height: 50%;
-  overflow-x: scroll;
-}
-
-.movie-card {
-  margin-right: 2.5%;
-  cursor: pointer;
-}
-img {
-  border-radius: 10px;
-  width: 150px;
-  height: 200px;
-}
-.movie-list::-webkit-scrollbar {
-  width: 10px;
-}
-.movie-list::-webkit-scrollbar-thumb {
-  background-color: #2f3542;
-  border-radius: 10px;
-}
-.movie-list::-webkit-scrollbar-track {
-  background-color: grey;
-  border-radius: 10px;
-  box-shadow: inset 0px 0px 5px white;
-}
 ul {
-  display: flex;
-  width: 100%;
-  text-align: center;
-  list-style: none;
-}
-li {
-  margin: 0 auto;
-  text-align: center;
-}
-.normal-movie h1{
-    text-align: center;
-}
-
-
-.Live-Movie {
-    
-    margin: 0 auto;
-   
     display: flex;
-    width: 80%;
-    height: 50%;
-    overflow-x: scroll;
-  }
-.Live-movie form{
-    margin-top: 5%;
-    margin-bottom: 2.5%;
-    text-align: center;
     width: 100%;
- 
+    text-align: center;
+    list-style: none;
   }
-.Upcoming-Movie{
-    display: none;
+  li {
     margin: 0 auto;
-   
-  
-    width: 80%;
-    height: 50%;
-    overflow-x: scroll;
-
-}
+    text-align: center;
+  }
 
 
 

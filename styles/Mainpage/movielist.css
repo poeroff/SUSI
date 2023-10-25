@@ -1,0 +1,104 @@
+.movie-title{
+    text-align: center;
+    font-size: 1vmax;
+    font-weight: bold;
+  }
+  
+  .movie-list{
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    height: 50%;
+    overflow-x: scroll;
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+
+   
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    
+    }
+    100% {
+        opacity: 1;
+   
+    }
+  }
+
+  .popular_movie{
+      margin: 0 auto;
+      display: none;
+      width: 80%;
+      height: 50%;
+      overflow-x: scroll;
+      
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+    }
+
+  
+  .movie-card {
+    margin-right: 2.5%;
+    cursor: pointer;
+  }
+  img {
+    border-radius: 10px;
+    width: 150px;
+    height: 200px;
+  }
+
+  
+  
+   form{
+      margin-top: 5%;
+      margin-bottom: 2.5%;
+      text-align: center;
+      width: 100%;
+   
+    }
+  
+  
+  .Live-Movie {
+      
+      margin: 0 auto;
+     
+      display: flex;
+      width: 80%;
+      height: 50%;
+      overflow-x: scroll;
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+    }
+ 
+  .Upcoming-Movie{
+      display: none;
+      margin: 0 auto;
+     
+      width: 80%;
+      height: 50%;
+      overflow-x: scroll;
+      animation-name: slide;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+  }
+
+  .MOVIE{
+    margin-top: 2.5%;
+  }
+
+  .MOVIE h1{
+    width: 100%;
+    text-align: center;
+    font-size: 5vmax;
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+  }
+
+
+  

@@ -1,0 +1,119 @@
+
+.popular_movie::-webkit-scrollbar {
+    width: 10px;
+  }
+  .popular_movie::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+  .popular_movie::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
+
+  .movie-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  .movie-list::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+  .movie-list::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
+  .Upcoming-Movie::-webkit-scrollbar {
+    width: 10px;
+  }
+  .Upcoming-Movie::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+  .Upcoming-Movie::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
+
+  .Live-Movie::-webkit-scrollbar {
+    width: 10px;
+  }
+  .Live-Movie::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+  .Live-Movie::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
+
+  .Tv-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  .Tv-list::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+  .Tv-list::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
+ 
+  
+
+  .popular_Tv_list::-webkit-scrollbar {
+    width: 10px;
+  }
+  .popular_Tv_list::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+  .popular_Tv_list::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+  
+
+  .Live_Tv-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  .Live_Tv-list::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+  }
+  .Live_Tv-list::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
+
+  
+  .Upcoming_Tv-list::-webkit-scrollbar {
+    width: 120px;
+    
+  }
+  .Upcoming_Tv-list::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+    
+  }
+  .Upcoming_Tv-list::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+   
+  }
+
+
+
