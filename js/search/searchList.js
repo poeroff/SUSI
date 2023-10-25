@@ -1,5 +1,63 @@
-const results = document.querySelector(".results");
+const $results = document.querySelector(".results");
+const buttons = document.querySelector(".buttons"); // 페이지 버튼을 담을 것
 const IMG_URL = "https://image.tmdb.org/t/p/w500/";
+let moviesArr = [];
+let keyword;
+// movieList Page
+const pagination = document.querySelector(".pagination");
+
+// prevPage, nextPage 2개 빼줘야 함
+const pageNumbers = pagination ? pagination.childElementCount - 2 : 0;
+const pageBtns = document.querySelectorAll(".pageBtn");
+
+let totalPageNum = 0;
+const shownPageNum = 5; // 페이지네이션 보이는 개수 5개
+
+const getMovieListByPage = (e) => {
+  let page = e.target.dataset.id;
+  const link = pureURL;
+  const url = new URL(link);
+  const urlParams = url.searchParams;
+  urlParams.append("page", page);
+  getMoiveListByKeywordAndPage(keyword, page);
+};
+
+const paintPagination = (number, direction) => {
+  const pageLink = number.querySelector(".page-link");
+  if (direction === "Next") {
+    if (Number(pageLink.innerHTML) + pageNumbers > totalPageNum) {
+      return;
+    } else {
+      pageLink.dataset.id = Number(pageLink.dataset.id) + pageNumbers;
+
+      pageLink.innerHTML = Number(pageLink.innerHTML) + pageNumbers;
+    }
+  } else if (direction === "Previous") {
+    if (Number(pageLink.innerHTML) - pageNumbers <= 0) {
+      return;
+    } else {
+      pageLink.innerHTML = Number(pageLink.innerHTML) - pageNumbers;
+    }
+  }
+};
+
+const pageNumber = document.getElementsByClassName("pageNumber");
+for (const number of pageNumber) {
+  number.addEventListener("click", getMovieListByPage);
+}
+const handlePageBtnClick = (e) => {
+  e.preventDefault();
+  console.log("click");
+  for (const number of pageNumber) {
+    const direction = e.target.innerHTML;
+    paintPagination(number, direction);
+  }
+};
+
+pageBtns.forEach((pageBtn) =>
+  pageBtn.addEventListener("click", handlePageBtnClick)
+);
+
 const options = {
   method: "GET",
   headers: {
@@ -9,28 +67,35 @@ const options = {
   },
 };
 
-let moviesArr = [];
-let keyword;
-
 const getMoiveListByKeywordAndPage = async (keyword, page = 1) => {
-  //   $tbody.innerHTML = "";
+  $results.innerHTML = "";
+
   const searchList = await fetch(
     `https://api.themoviedb.org/3/search/movie?query=${keyword}&include_adult=false&language=en-US&page=${page}`,
     options
   );
   const jsonData = await searchList.json();
-  //   let { total_pages } = jsonData;
-  const { results } = jsonData;
+  let { results, total_pages } = jsonData;
+  const lastPage = total_pages;
+  if (total_pages % shownPageNum) {
+    total_pages += shownPageNum - (total_pages % shownPageNum);
+  }
+  totalPageNum = total_pages;
+  if (results.length === 0) {
+    alert("Sorry no info");
+    getMoiveListByKeywordAndPage(keyword, lastPage);
+    alert(`Last page : ${lastPage}`);
+    return;
+  }
+
   results.forEach((movie) => {
     const { title, overview, poster_path } = movie;
     paintCard(title, overview, poster_path);
-    console.log(movie);
   });
-  console.log(results);
 };
 
 const paintCard = (titleParam, overviewParam, poster_path) => {
-  if(poster_path){
+  if (poster_path) {
     let card = document.createElement("div");
     card.classList.add("card");
     let wrapper = document.createElement("div");
@@ -40,7 +105,7 @@ const paintCard = (titleParam, overviewParam, poster_path) => {
     let moviePoster = document.createElement("a");
     moviePoster.classList.add("movie-poster");
     moviePoster.classList.add("result");
-  
+
     let details = document.createElement("div");
     details.classList.add("details");
     let title = document.createElement("div");
@@ -50,13 +115,13 @@ const paintCard = (titleParam, overviewParam, poster_path) => {
     movieTitle.classList.add("result");
     let releaseDate = document.createElement("span");
     releaseDate.className = "release_date";
-  
+
     let overview = document.createElement("div");
-    movieTitle.innerHTML = `<h1>${titleParam}</h1>`;
+    movieTitle.innerHTML = `<h2>${titleParam}</h2>`;
     releaseDate.innerText = "2023.10.24";
     overview.innerHTML = `<p>${overviewParam}</p>`;
     moviePoster.innerHTML = `<img src="${IMG_URL + poster_path}" alt="" />`;
-  
+
     title.appendChild(movieTitle);
     title.appendChild(releaseDate);
     details.appendChild(title);
@@ -65,32 +130,15 @@ const paintCard = (titleParam, overviewParam, poster_path) => {
     wrapper.appendChild(poster);
     wrapper.appendChild(details);
     card.appendChild(wrapper);
-    results.append(card);
-
+    $results.append(card);
   }
-
-
 };
-
-/*
-                <div>
-                  <a href="" class="result">
-                    <h2>제목</h2>
-                  </a>
-                </div>
-                <span class="release_date">October 24, 2023</span>
-              </div>
-
-
-*/
 
 // 현 위치가 search.html일 경우, 검색 키워드 받아옴
 if (window.location.href.includes("search.html")) {
   pureURL = window.location.href;
-  console.log(pureURL)
   const urlParams = new URLSearchParams(window.location.search);
   keyword = urlParams.get("keyword");
-  console.log(keyword);
 } else {
   false;
 }
