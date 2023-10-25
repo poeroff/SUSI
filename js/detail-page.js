@@ -161,27 +161,35 @@ const post = async (movie_id) => {
 // }); => init 함수 안으로 리팩토링
 
 const init = async () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    let movieId = urlParams.get("id");
-    movieInfoArr(movieId);
-    let totallFunc = await post(movieId);
-    let totallArr = Array.from(totallFunc.results);
-    let filteredArr = totallArr.filter((movie) => {
-        return movie.type === "Trailer";
-    });
-    let filteredArrMinus = filteredArr.slice(0, 1);
-    filteredArrMinus.forEach((video) => {
-        let videoUrl = `https://www.youtube.com/embed/${video.key}`;
-        const videoElm = document.querySelector(".videoCss");
-        const videoIframe = document.createElement("iframe");
-        videoIframe.className = "video";
-        videoIframe.setAttribute("width", 800);
-        videoIframe.setAttribute("height", 600);
-        videoIframe.setAttribute("margin", "600px");
-        videoIframe.setAttribute("allow", "fullscreen");
-        videoIframe.setAttribute("src", videoUrl);
-        videoElm.append(videoIframe);
-    });
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        let movieId = urlParams.get("id");
+        movieInfoArr(movieId);
+        let totallFunc = await post(movieId);
+        let totallArr = Array.from(totallFunc.results);
+        let filteredArr = totallArr.filter((movie) => {
+            return movie.type === "Trailer";
+        });
+        let filteredArrMinus = filteredArr.slice(0, 1);
+        filteredArrMinus.forEach((video) => {
+            let videoUrl = `https://www.youtube.com/embed/${video.key}`;
+            const videoElm = document.querySelector(".videoCss");
+            const videoIframe = document.createElement("iframe");
+            videoIframe.className = "video";
+            videoIframe.setAttribute("width", 800);
+            videoIframe.setAttribute("height", 600);
+            videoIframe.setAttribute("margin", "600px");
+            videoIframe.setAttribute("allow", "fullscreen");
+            videoIframe.setAttribute("src", videoUrl);
+            videoElm.append(videoIframe);
+        });
+    } catch (e) {
+        // let videoUrl = `https://www.youtube.com/embed/${video.key}`;
+        const errE = document.querySelector(".videoCss");
+        const errDiv = document.createElement("h1");
+        errDiv.innerText = "No video: 404";
+        errE.append(errDiv);
+    }
 };
 
 init();
