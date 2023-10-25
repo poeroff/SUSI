@@ -1,6 +1,11 @@
 const divider = document.querySelector(".divider");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
+const image = document.querySelector(".image");
+const p0 = document.querySelector(".p0");
+const p1 = document.querySelector(".p1");
+const p2 = document.querySelector(".p2");
+const p3 = document.querySelector(".p3");
 
 // fetch 옵션
 const options = {
@@ -21,7 +26,7 @@ async function getMovieListFromDB(id) {
 try {    
     const response = await fetch(API_URL + id, options)
     const jsonData = await response.json();
-    movieInfo.push(jsonData['title'], jsonData['vote_average'], jsonData['overview'], jsonData['poster_path']);
+    movieInfo.push(jsonData['poster_path'], jsonData['title'], jsonData['overview'], jsonData['vote_average']);
     }
 catch (error) {
     console.error(error);
@@ -30,26 +35,22 @@ catch (error) {
 getMovieListFromDB(240)
 .then(()=> {
     // 이미지와 기타 영화 정보 웹페이지에 출력
-    left.innerHTML = `<img class= "image" src="https://image.tmdb.org/t/p/w500/${movieInfo[3]}">`;
-    const image = document.querySelector(".image");
-    image.style.width = '300px';
-    image.style.height = '270px';
-    const p1 = document.createElement('p');
-    right.appendChild(p1);
-    p1.innerHTML = `${movieInfo[0]}`;
-    p1.style.fontSize = '50px';
-    
-    
-    const p2 = document.createElement('p');
-    right.appendChild(p2);
-    p2.innerHTML = `overview : ${movieInfo[2]}`;
-    p2.style.fontSize = '20px';
-    
-    const p3 = document.createElement('p');
-    right.appendChild(p3);
-    p3.innerHTML = `voteAverage : ${movieInfo[1]}`;
-    p3.style.fontSize = '18px';
+    console.log(movieInfo);
+    // 이미지가 존재할 때 
+    if(movieInfo[0] !== undefined) {
+        
+        image.setAttribute('src',`https://image.tmdb.org/t/p/w500/${movieInfo[0]}`);
+        p1.innerHTML = `${movieInfo[1]}`;
+        p2.innerHTML = `${movieInfo[2]}`;
+        p3.innerHTML = `vote_average : ${movieInfo[3]}`;
 
+    // 이미지가 존재하지 않을 때
+    } else if (movieInfo[0] === undefined) {
+     
+        image.setAttribute('src',`https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2Ff3%2Ffc%2Ffe%2Ff3fcfe3bb9539323c8d62aa105b15563.jpg&type=a340`);
+        p0.innerHTML = 'The information could not be retrieved.';
+
+    }   
 })
 
 
