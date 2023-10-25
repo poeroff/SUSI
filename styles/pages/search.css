@@ -1,25 +1,25 @@
 body {
-  height: 100vh;
-  width: auto;
-  box-sizing: border-box;
-  margin: 0 0;
-  background-color: #0e0e0e;
+    height: 100vh;
+    width: auto;
+    box-sizing: border-box;
+    margin: 0 0;
+    background-color: #0e0e0e;
 }
 
 .wrapper {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .movie-info {
-  width: 560px;
-  height: 315px;
-  overflow: scroll;
-  scroll-behavior: smooth;
+    width: 560px;
+    height: 315px;
+    overflow: scroll;
+    scroll-behavior: smooth;
 }
 
 .movie-info::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
