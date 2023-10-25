@@ -106,3 +106,7 @@ Movie Trailer */
     justify-content: center;
     align-items: center;
 }
+
+.videoCss > i {
+    margin: 100px auto 100px auto;
+}
