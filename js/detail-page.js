@@ -180,16 +180,53 @@ const init = async () => {
             videoIframe.setAttribute("height", 600);
             videoIframe.setAttribute("margin", "600px");
             videoIframe.setAttribute("allow", "fullscreen");
-
+            videoIframe.setAttribute("src", videoUrl);
             videoElm.append(videoIframe);
         });
         throw error;
     } catch (e) {
         const errE = document.querySelector(".videoCss");
         const errIcon = document.createElement("i");
-        errIcon.className = "fa-solid fa-video-slash fa-beat";
+        errIcon.className = "fas fa-video-slash fa-4x";
         errE.append(errIcon);
     }
 };
 
 init();
+
+let movieActor = async (movie_id) => {
+    const url = `https://api.themoviedb.org/3/movie/${movie_id}/credits?language=en-US`;
+    const options = {
+        method: "GET",
+        headers: {
+            accept: "application/json",
+            Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMDkzNzRjY2EyNTc1NjM4ZDEwMDk3NzAzYjFhODliYSIsInN1YiI6IjY1MmZiZWRkYTgwMjM2MDBmZDJkOWY0NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ga70Ew8jOvgDuOUzMiuJgfI8GjGGypablmY74WjMtUs",
+        },
+    };
+    const res = await fetch(url, options);
+    const data = await res.json();
+    if (res.ok) {
+        return data;
+    } else {
+        throw Error(data);
+    }
+};
+
+// let filteredArr = totallArr.filter((movie) => {
+//   return movie.type === "Trailer";
+// });
+// console.log(filteredArr); --------> fillter인 array값만 불러온다! 그중에 첫번째 해당하는 key value값만 호출
+// let filteredArrMinus = filteredArr.slice(0, 1);
+// filteredArrMinus.forEach((video) => {
+//   let videoUrl = `https://www.youtube.com/embed/${video.key}`;
+//   const videoElm = document.querySelector(".videoCss");
+//   const videoIframe = document.createElement("iframe");
+//   videoIframe.className = "video";
+//   videoIframe.setAttribute("width", 800);
+//   videoIframe.setAttribute("height", 600);
+//   videoIframe.setAttribute("margin", "600px");
+//   videoIframe.setAttribute("allow", "fullscreen");
+//   videoIframe.setAttribute("src", videoUrl);
+//   videoElm.append(videoIframe);
+// }); => init 함수 안으로 리팩토링
