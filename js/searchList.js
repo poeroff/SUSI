@@ -87,6 +87,7 @@ const paintCard = (titleParam, overviewParam, poster_path) => {
 // 현 위치가 search.html일 경우, 검색 키워드 받아옴
 if (window.location.href.includes("search.html")) {
   pureURL = window.location.href;
+  console.log(pureURL)
   const urlParams = new URLSearchParams(window.location.search);
   keyword = urlParams.get("keyword");
   console.log(keyword);
