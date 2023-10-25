@@ -47,7 +47,6 @@ for (const number of pageNumber) {
 }
 const handlePageBtnClick = (e) => {
   e.preventDefault();
-  console.log("click");
   for (const number of pageNumber) {
     const direction = e.target.innerHTML;
     paintPagination(number, direction);
@@ -94,44 +93,52 @@ const getMoiveListByKeywordAndPage = async (keyword, page = 1) => {
   });
 };
 
+const paintCardDetail = (titleParam, overviewParam, id, url) => {
+  let card = document.createElement("div");
+  card.classList.add("card");
+  let wrapper = document.createElement("div");
+  wrapper.classList.add("wrapper");
+  let poster = document.createElement("div");
+  poster.classList.add("poster");
+  let moviePoster = document.createElement("a");
+  moviePoster.classList.add("movie-poster");
+  moviePoster.classList.add("result");
+
+  let details = document.createElement("div");
+  details.classList.add("details");
+  let title = document.createElement("div");
+  title.classList.add("title");
+  let movieTitle = document.createElement("a");
+  movieTitle.classList.add("movie-title");
+  movieTitle.classList.add("result");
+  let releaseDate = document.createElement("span");
+  releaseDate.className = "release_date";
+
+  let overview = document.createElement("div");
+  movieTitle.innerHTML = `<h1>${titleParam}</h1>`;
+  movieTitle.href = `./detail-page.html?id=${id}`;
+  releaseDate.innerText = "2023.10.24";
+  overview.innerHTML = `<p>${overviewParam}</p>`;
+  moviePoster.innerHTML = `<img src="${url}" alt="" />`;
+  moviePoster.href = `./detail-page.html?id=${id}`;
+  title.appendChild(movieTitle);
+  title.appendChild(releaseDate);
+  details.appendChild(title);
+  details.appendChild(overview);
+  poster.appendChild(moviePoster);
+  wrapper.appendChild(poster);
+  wrapper.appendChild(details);
+  card.appendChild(wrapper);
+  $results.append(card);
+};
+
 const paintCard = (titleParam, overviewParam, poster_path, id) => {
   if (poster_path) {
-    let card = document.createElement("div");
-    card.classList.add("card");
-    let wrapper = document.createElement("div");
-    wrapper.classList.add("wrapper");
-    let poster = document.createElement("div");
-    poster.classList.add("poster");
-    let moviePoster = document.createElement("a");
-    moviePoster.classList.add("movie-poster");
-    moviePoster.classList.add("result");
-
-    let details = document.createElement("div");
-    details.classList.add("details");
-    let title = document.createElement("div");
-    title.classList.add("title");
-    let movieTitle = document.createElement("a");
-    movieTitle.classList.add("movie-title");
-    movieTitle.classList.add("result");
-    let releaseDate = document.createElement("span");
-    releaseDate.className = "release_date";
-
-    let overview = document.createElement("div");
-    movieTitle.innerHTML = `<h1>${titleParam}</h1>`;
-    movieTitle.href = `./detail-page.html?id=${id}`;
-    releaseDate.innerText = "2023.10.24";
-    overview.innerHTML = `<p>${overviewParam}</p>`;
-    moviePoster.innerHTML = `<img src="${IMG_URL + poster_path}" alt="" />`;
-    moviePoster.href = `./detail-page.html?id=${id}`;
-    title.appendChild(movieTitle);
-    title.appendChild(releaseDate);
-    details.appendChild(title);
-    details.appendChild(overview);
-    poster.appendChild(moviePoster);
-    wrapper.appendChild(poster);
-    wrapper.appendChild(details);
-    card.appendChild(wrapper);
-    $results.append(card);
+    let url = IMG_URL + poster_path;
+    paintCardDetail(titleParam, overviewParam, id, url);
+  } else {
+    let url = "./assets/imgs/noimage.jpeg";
+    paintCardDetail(titleParam, overviewParam, id, url);
   }
 };
 
