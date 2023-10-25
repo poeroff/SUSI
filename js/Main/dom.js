@@ -4,8 +4,8 @@ export function paintCard (moviename, isvalid, backdrop_path, title, id,name)  {
       let movieCard = document.createElement("div");
       movieCard.classList.add("movie-card");
       movieCard.dataset.id = id;
-      movieCard.innerHTML = `<img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
-      <h3 class="movie-title">${isvalid ? name : title}</h3>`;
+      movieCard.innerHTML = `<a href="./detail-page.html?id=${id}"><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
+      <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
       var valid = isvalid ?   ".Tv-list " : ".movie-list";
       document.querySelector(valid).append(movieCard);
     }
@@ -14,8 +14,8 @@ export function paintCard (moviename, isvalid, backdrop_path, title, id,name)  {
       let Livemovie = document.createElement("div");
       Livemovie.classList.add("movie-card");
       Livemovie.dataset.id = id;
-      Livemovie.innerHTML = `<img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
-      <h3 class="movie-title">${isvalid ? name : title}</h3>`;
+      Livemovie.innerHTML = `<a href="./detail-page.html?id=${id}"><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
+      <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
   
       let valid = isvalid ? ".Live_Tv-list" : ".Live-Movie";
       document.querySelector(valid).append(Livemovie);
@@ -25,8 +25,8 @@ export function paintCard (moviename, isvalid, backdrop_path, title, id,name)  {
       Upcomingmovie.classList.add("movie-card");
       Upcomingmovie.dataset.id = id;
       
-      Upcomingmovie.innerHTML = `<img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
-      <h3 class="movie-title">${isvalid ? name : title}</h3>`;
+      Upcomingmovie.innerHTML = `<a href="./detail-page.html?id=${id}"><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
+      <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
       let valid = isvalid ? ".Upcoming_Tv-list" :".Upcoming-Movie"
      
       document.querySelector(valid).append(Upcomingmovie);
@@ -36,7 +36,7 @@ export function paintCard (moviename, isvalid, backdrop_path, title, id,name)  {
       let Popularmovie = document.createElement("div");
       Popularmovie.classList.add("movie-card");
       Popularmovie.dataset.id = id;
-      Popularmovie.innerHTML = `<a href=""><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
+      Popularmovie.innerHTML = `<a href="./detail-page.html?id=${id}"><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
       <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
       let valid = isvalid ? ".popular_Tv_list" : ".popular_movie";
      
