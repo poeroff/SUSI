@@ -117,7 +117,7 @@ const paintCard = (titleParam, overviewParam, poster_path, id) => {
     releaseDate.className = "release_date";
 
     let overview = document.createElement("div");
-    movieTitle.innerHTML = `<h2>${titleParam}</h2>`;
+    movieTitle.innerHTML = `<h1>${titleParam}</h1>`;
     movieTitle.href = `./detail-page.html?id=${id}`;
     releaseDate.innerText = "2023.10.24";
     overview.innerHTML = `<p>${overviewParam}</p>`;

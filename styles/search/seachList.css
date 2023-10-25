@@ -19,14 +19,16 @@
   margin: 0 auto;
 }
 .h2 {
-  font-size: 0.5vmax;
+  font-size: 10vmax;
+  font-family: 'Lato', sans-serif;
  
 }
 p{
   font-weight: bold;
-  font-size: 0.75vmax;
+  font-size: 1vmax;
   font-family: 'Lato', sans-serif;
   margin-top: 10%;
+  text-align: center;
 }
 
 .searchBtn{
@@ -49,8 +51,8 @@ p{
 .release_date{
   font-family: 'Lato', sans-serif;
   font-size: 1.5vmax;
-  
  
- 
+  float: right;
+
 
 }
