@@ -1,60 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/be50c7a0af.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <script src="https://kit.fontawesome.com/be50c7a0af.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/style.css" />
+    <!-- <link rel="stylesheet" href="styles/pages/movielist.css" /> -->
+    <link rel="stylesheet" href="./styles/main.css" />
 
-  <!-- <link rel="stylesheet" href="styles/pages/movielist.css" /> -->
-  <link rel="stylesheet" href="./styles/main.css" />
+    <title>영화 콜렉션 - 전호영</title>
+  </head>
 
-
-  <title>영화 콜렉션 - 전호영</title>
-</head>
-
-<body>
-  <header class="p-3 text-bg-dark">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <ul>
-          <li><a href="/" class="Maintitle">Main</a></li>
-        
-        </ul>
+  <body>
+    <header class="p-3 text-bg-dark">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <ul>
+            <li><a href="/" class="Maintitle">Main</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="divider">
+      <div class="row">
+        <form class="search">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="영화 제목을 검색해 보세요"
+          />
+          <button type="submit" id="searchBtn">검색</button>
+        </form>
       </div>
     </div>
-  </header>
-  <div class="divider">
-    <div class="row">
-      <form class="search">
-        <input type="text" id="searchInput" placeholder="영화 제목을 검색해 보세요" />
-        <button type="submit" id="searchBtn">검색</button>
-      </form>
-    </div>
-  </div>
 
-  <div class="results">
+    <div class="results"></div>
 
-  </div>
-  <script type="module" src="./js/search/search.js"></script>
-  <script src="./js/search/searchList.js"></script>
-</body>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item prevPageBtn pageBtn">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item pageNumber">
+          <a class="page-link" href="#" data-id="1">1</a>
+        </li>
+        <li class="page-item pageNumber">
+          <a class="page-link" href="#" data-id="2">2</a>
+        </li>
+        <li class="page-item pageNumber">
+          <a class="page-link" href="#" data-id="3">3</a>
+        </li>
+        <li class="page-item pageNumber">
+          <a class="page-link" href="#" data-id="4">4</a>
+        </li>
+        <li class="page-item pageNumber">
+          <a class="page-link" href="#" data-id="5">5</a>
+        </li>
 
+        <li class="page-item nextPageBtn pageBtn">
+          <a class="page-link">Next</a>
+        </li>
+      </ul>
+    </nav>
+    <script type="module" src="./js/search/search.js"></script>
+    <script src="./js/search/searchList.js"></script>
+  </body>
 </html>
