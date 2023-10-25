@@ -89,12 +89,12 @@ const getMoiveListByKeywordAndPage = async (keyword, page = 1) => {
   }
 
   results.forEach((movie) => {
-    const { title, overview, poster_path } = movie;
-    paintCard(title, overview, poster_path);
+    const { title, overview, poster_path, id } = movie;
+    paintCard(title, overview, poster_path, id);
   });
 };
 
-const paintCard = (titleParam, overviewParam, poster_path) => {
+const paintCard = (titleParam, overviewParam, poster_path, id) => {
   if (poster_path) {
     let card = document.createElement("div");
     card.classList.add("card");
@@ -118,10 +118,11 @@ const paintCard = (titleParam, overviewParam, poster_path) => {
 
     let overview = document.createElement("div");
     movieTitle.innerHTML = `<h2>${titleParam}</h2>`;
+    movieTitle.href = `./detail-page.html?id=${id}`;
     releaseDate.innerText = "2023.10.24";
     overview.innerHTML = `<p>${overviewParam}</p>`;
     moviePoster.innerHTML = `<img src="${IMG_URL + poster_path}" alt="" />`;
-
+    moviePoster.href = `./detail-page.html?id=${id}`;
     title.appendChild(movieTitle);
     title.appendChild(releaseDate);
     details.appendChild(title);
