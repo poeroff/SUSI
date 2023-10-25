@@ -180,15 +180,15 @@ const init = async () => {
             videoIframe.setAttribute("height", 600);
             videoIframe.setAttribute("margin", "600px");
             videoIframe.setAttribute("allow", "fullscreen");
-            videoIframe.setAttribute("src", videoUrl);
+
             videoElm.append(videoIframe);
         });
+        throw error;
     } catch (e) {
-        // let videoUrl = `https://www.youtube.com/embed/${video.key}`;
         const errE = document.querySelector(".videoCss");
-        const errDiv = document.createElement("h1");
-        errDiv.innerText = "No video: 404";
-        errE.append(errDiv);
+        const errIcon = document.createElement("i");
+        errIcon.className = "fa-solid fa-video-slash fa-beat";
+        errE.append(errIcon);
     }
 };
 
