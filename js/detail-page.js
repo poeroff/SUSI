@@ -83,8 +83,9 @@ console.log(totallArr);
 let filteredArr = totallArr.filter((movie) => {
     return movie.type === "Trailer";
 });
-// console.log(filteredArr); --------> fillter인 array값만 불러온다!
-filteredArr.forEach((video) => {
+// console.log(filteredArr); --------> fillter인 array값만 불러온다! 그중에 첫번째 해당하는 key value값만 호출
+let filteredArrMinus = filteredArr.slice(0, 1);
+filteredArrMinus.forEach((video) => {
     let videoUrl = `https://www.youtube.com/embed/${video.key}`;
     const videoElm = document.querySelector(".videoCss");
     const videoIframe = document.createElement("iframe");
