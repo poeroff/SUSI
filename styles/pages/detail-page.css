@@ -68,7 +68,7 @@ a:active {
     font-family: "Alumni Sans Collegiate One", sans-serif;
 }
 
-ul {
+.ul1 {
     display: flex;
     width: 100%;
     text-align: center;
@@ -132,3 +132,116 @@ Movie Trailer */
     border-bottom: 1px solid black;
     display: block;
 }
+
+
+/***********************************리뷰************************/
+.todoApp {
+    width: 100%;
+    max-width: 540px;
+    background: rgb(128, 155, 197);
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todoApp > h2 {
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todoApp > h2 > img {
+    width: 30px;
+    margin-left: 10px;
+}
+.dataBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.nameInput {
+    margin-left: 1px;
+    width: 85px;
+    font-size: 20px;        
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+
+.textInput {
+    margin-right: 4px;
+    width: 300px;
+    font-size: 20px;
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+.dataBtn {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: rgb(14, 14, 29);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+
+.pwdInput {
+    margin-left: 360px;
+    width: 120px;
+    font-size: 20px;
+    flex: 1;
+    border-radius: 30px;
+    padding: 10px;
+    padding-left: 20px;
+    border: none;
+    outline: none;
+}
+
+.task > li {
+    width: 420px;
+    margin-left: -45px;
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.task > li > span {
+    margin-right: -50px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+.task > li > span:hover {
+    background: #edeef0;
+}
+
+
+
+/*************************************리뷰****************************/

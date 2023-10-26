@@ -25,7 +25,7 @@
         <header class="p-3 text-bg-dark">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <ul>
+                    <ul class = "ul1">
                         <li><a href="/" class="Maintitle">Main</a></li>
                     </ul>
                 </div>
@@ -50,5 +50,26 @@
         <div class="actorFrame">
             <div class="actorView"></div>
         </div>
+
+
+        <div class = "reviewBox">
+            <div class="todoApp">
+                 <h2>Review<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20230720_216%2F16897863844450Q9j6_JPEG%2F727417285409624_1721449598.jpg&type=a340"></h2>
+                 <div class="dataBox">
+                    <input class = "nameInput" type="text" id="nameInput" placeholder="name" onkeyup="if(window.event.keyCode==13){onClick()}"> 
+                    <input class ="textInput" type="text" id="textInput" placeholder="text" onkeyup="if(window.event.keyCode==13){onClick()}">
+                    <button class ="dataBtn" onclick = "addTask()">add</button>                
+                </div>
+                <input class = "pwdInput" type="password" id="pwdInput" placeholder="password" onkeyup="if(window.event.keyCode==13){onClick()}">
+                <ul class ="task" id="listContainer">
+                    <!-- <li class="checked">안녕하세요 반갑습니다.</li>
+                    <li>task2</li>
+                    <li>task3</li> -->
+                </ul>
+            </div>   
+        </div>
+        <script src="js/detail-reviews.js"></script>
+
+
     </body>
 </html>
