@@ -2,8 +2,11 @@ export function paintCard (moviename, isvalid, backdrop_path, title, id,name)  {
   
     if (moviename === "Top_movie" || moviename === "Top_Tv") {
       let movieCard = document.createElement("div");
+     
       movieCard.classList.add("movie-card");
       movieCard.dataset.id = id;
+      movieCard.dataset.type = isvalid ? "TV" : "MOVIE"
+      
       movieCard.innerHTML = `<a href="./detail-page.html?id=${id}"><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
       <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
       var valid = isvalid ?   ".Tv-list " : ".movie-list";
@@ -14,6 +17,7 @@ export function paintCard (moviename, isvalid, backdrop_path, title, id,name)  {
       let Livemovie = document.createElement("div");
       Livemovie.classList.add("movie-card");
       Livemovie.dataset.id = id;
+      Livemovie.dataset.type = isvalid ? "TV" : "MOVIE"
       Livemovie.innerHTML = `<a href="./detail-page.html?id=${id}"><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
       <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
   
@@ -24,6 +28,7 @@ export function paintCard (moviename, isvalid, backdrop_path, title, id,name)  {
       let Upcomingmovie = document.createElement("div");
       Upcomingmovie.classList.add("movie-card");
       Upcomingmovie.dataset.id = id;
+      Upcomingmovie.dataset.type = isvalid ? "TV" : "MOVIE"
       
       Upcomingmovie.innerHTML = `<a href="./detail-page.html?id=${id}"><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
       <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
@@ -36,6 +41,7 @@ export function paintCard (moviename, isvalid, backdrop_path, title, id,name)  {
       let Popularmovie = document.createElement("div");
       Popularmovie.classList.add("movie-card");
       Popularmovie.dataset.id = id;
+      Popularmovie.dataset.type = isvalid ? "TV" : "MOVIE"
       Popularmovie.innerHTML = `<a href="./detail-page.html?id=${id}"><img src="https://image.tmdb.org/t/p/w500/${backdrop_path}" alt="${isvalid ? name : title}">
       <h3 class="movie-title">${isvalid ? name : title}</h3></a>`;
       let valid = isvalid ? ".popular_Tv_list" : ".popular_movie";
