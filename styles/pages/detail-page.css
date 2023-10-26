@@ -115,9 +115,18 @@ Movie Trailer */
     margin-bottom: 50px;
 }
 .actorWho {
+    font-size: 13.5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3px;
+}
+.actorRealNameWho {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
 }
 .actorPic {
     border-bottom: 1px solid black;
