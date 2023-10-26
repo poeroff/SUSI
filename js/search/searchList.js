@@ -88,12 +88,13 @@ const getMoiveListByKeywordAndPage = async (keyword, page = 1) => {
   }
 
   results.forEach((movie) => {
-    const { title, overview, poster_path, id } = movie;
-    paintCard(title, overview, poster_path, id);
+    const { title, overview, poster_path, id, release_date } = movie;
+    paintCard(title, overview, poster_path, id, release_date);
   });
 };
 
-const paintCardDetail = (titleParam, overviewParam, id, url) => {
+const paintCardDetail = (titleParam, overviewParam, id, url, release_date) => {
+  console.log(release_date);
   let card = document.createElement("div");
   card.classList.add("card");
   let wrapper = document.createElement("div");
@@ -116,11 +117,11 @@ const paintCardDetail = (titleParam, overviewParam, id, url) => {
 
   let overview = document.createElement("div");
   movieTitle.innerHTML = `<h1>${titleParam}</h1>`;
-  movieTitle.href = `./detail-page.html?id=${id}`;
-  releaseDate.innerText = "2023.10.24";
+  movieTitle.href = `./detail-page.html?type=movie&id=${id}`;
+  releaseDate.innerText = release_date;
   overview.innerHTML = `<p>${overviewParam}</p>`;
   moviePoster.innerHTML = `<img src="${url}" alt="" />`;
-  moviePoster.href = `./detail-page.html?id=${id}`;
+  moviePoster.href = `./detail-page.html?type=movie&id=${id}`;
   title.appendChild(movieTitle);
   title.appendChild(releaseDate);
   details.appendChild(title);
@@ -132,13 +133,19 @@ const paintCardDetail = (titleParam, overviewParam, id, url) => {
   $results.append(card);
 };
 
-const paintCard = (titleParam, overviewParam, poster_path, id) => {
+const paintCard = (
+  titleParam,
+  overviewParam,
+  poster_path,
+  id,
+  release_date
+) => {
   if (poster_path) {
     let url = IMG_URL + poster_path;
-    paintCardDetail(titleParam, overviewParam, id, url);
+    paintCardDetail(titleParam, overviewParam, id, url, release_date);
   } else {
     let url = "./assets/imgs/noimage.jpeg";
-    paintCardDetail(titleParam, overviewParam, id, url);
+    paintCardDetail(titleParam, overviewParam, id, url, release_date);
   }
 };
 
