@@ -138,18 +138,27 @@ const drawActorInfo = async () => {
         let actorPath = actor.profile_path;
         let actorName = actor.name;
         let actorUrlPath = actorPath ? actorUrl + actorPath : "./assets/imgs/noimage.jpeg";
+        let actorCharacter = actor.character;
         // =============================================
         const actorCard = document.querySelector(".actorView");
         const actorPotoImg = document.createElement("img");
         const actorPotoP = document.createElement("p");
+        const actorPotoCharacter = document.createElement("p");
+        const actorCharacterTitle = document.createElement("p");
         const actorPotoDiv = document.createElement("div");
         const errImgActor = "NO ACTOR IMG";
         actorPotoP.innerText = actorName;
+        actorCharacterTitle.innerText = "Character:";
+        actorPotoCharacter.innerText = actorCharacter;
         actorPotoDiv.className = "basket";
-        actorPotoP.className = "actorWho";
+        actorPotoP.className = "actorRealNameWho";
+        actorCharacterTitle.className = "actorWho";
+        actorPotoCharacter.className = "actorWho";
         actorPotoImg.className = "actorPic";
         actorPotoImg.setAttribute("src", actorUrlPath);
         actorPotoImg.setAttribute("alt", errImgActor);
+        actorPotoDiv.append(actorPotoCharacter);
+        actorPotoDiv.prepend(actorCharacterTitle);
         actorPotoDiv.prepend(actorPotoP);
         actorPotoDiv.prepend(actorPotoImg);
         actorCard.append(actorPotoDiv);
