@@ -33,11 +33,9 @@ const movieInfoArr = async (id) => {
     }
 };
 
-
-
 const paintMovieInfo = (movieInfo) => {
     // 이미지와 기타 영화 정보 웹페이지에 출력
-    console.log(movieInfo);
+    // console.log(movieInfo);
     // 이미지가 존재할 때
     if (movieInfo[0] !== undefined) {
         image.setAttribute("src", `https://image.tmdb.org/t/p/w500/${movieInfo[0]}`);
@@ -54,9 +52,6 @@ const paintMovieInfo = (movieInfo) => {
         p0.innerHTML = "The information could not be retrieved.";
     }
 };
-
-
-
 
 const post = async (movie_id) => {
     const url = `https://api.themoviedb.org/3/movie/${movie_id}/videos`;
@@ -76,8 +71,6 @@ const post = async (movie_id) => {
         throw Error(data);
     }
 };
-
-
 
 const init = async () => {
     try {
@@ -132,20 +125,44 @@ let movieActor = async (movie_id) => {
     }
 };
 
-// let filteredArr = totallArr.filter((movie) => {
-//   return movie.type === "Trailer";
-// });
-// console.log(filteredArr); --------> fillter인 array값만 불러온다! 그중에 첫번째 해당하는 key value값만 호출
-// let filteredArrMinus = filteredArr.slice(0, 1);
-// filteredArrMinus.forEach((video) => {
-//   let videoUrl = `https://www.youtube.com/embed/${video.key}`;
-//   const videoElm = document.querySelector(".videoCss");
-//   const videoIframe = document.createElement("iframe");
-//   videoIframe.className = "video";
-//   videoIframe.setAttribute("width", 800);
-//   videoIframe.setAttribute("height", 600);
-//   videoIframe.setAttribute("margin", "600px");
-//   videoIframe.setAttribute("allow", "fullscreen");
-//   videoIframe.setAttribute("src", videoUrl);
-//   videoElm.append(videoIframe);
-// }); => init 함수 안으로 리팩토링
+const drawActorInfo = async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    let movieId = urlParams.get("id");
+    movieInfoArr(movieId);
+    let totallActorFunc = await movieActor(movieId);
+    // console.log(totallActorFunc);
+    let totallActorArr = Array.from(totallActorFunc.cast);
+    totallActorArr.splice(10);
+    totallActorArr.map((actor) => {
+        const actorUrl = "https://image.tmdb.org/t/p/w200";
+        let actorPath = actor.profile_path;
+        let actorName = actor.name;
+        let actorUrlPath = actorPath ? actorUrl + actorPath : "./assets/imgs/noimage.jpeg";
+        let actorCharacter = actor.character;
+        // =============================================
+        const actorCard = document.querySelector(".actorView");
+        const actorPotoImg = document.createElement("img");
+        const actorPotoP = document.createElement("p");
+        const actorPotoCharacter = document.createElement("p");
+        const actorCharacterTitle = document.createElement("p");
+        const actorPotoDiv = document.createElement("div");
+        const errImgActor = "NO ACTOR IMG";
+        actorPotoP.innerText = actorName;
+        actorCharacterTitle.innerText = "Character:";
+        actorPotoCharacter.innerText = actorCharacter;
+        actorPotoDiv.className = "basket";
+        actorPotoP.className = "actorRealNameWho";
+        actorCharacterTitle.className = "actorWho";
+        actorPotoCharacter.className = "actorWho";
+        actorPotoImg.className = "actorPic";
+        actorPotoImg.setAttribute("src", actorUrlPath);
+        actorPotoImg.setAttribute("alt", errImgActor);
+        actorPotoDiv.append(actorPotoCharacter);
+        actorPotoDiv.prepend(actorCharacterTitle);
+        actorPotoDiv.prepend(actorPotoP);
+        actorPotoDiv.prepend(actorPotoImg);
+        actorCard.append(actorPotoDiv);
+    });
+};
+
+drawActorInfo();
