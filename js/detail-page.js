@@ -148,8 +148,8 @@ const drawActorInfo = async () => {
         const actorPotoDiv = document.createElement("div");
         const errImgActor = "NO ACTOR IMG";
         actorPotoP.innerText = actorName;
-        actorCharacterTitle.innerText = "Character:";
-        actorPotoCharacter.innerText = actorCharacter;
+        actorCharacterTitle.innerText = "Character:   " + actorCharacter;
+        
         actorPotoDiv.className = "basket";
         actorPotoP.className = "actorRealNameWho";
         actorCharacterTitle.className = "actorWho";

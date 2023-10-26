@@ -4,6 +4,12 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -91,54 +97,44 @@ Movie Trailer */
 .videoCss > i {
     margin: 100px auto 100px auto;
 }
-.actorView {
-    width: 1200px;
+
+.actorFrame{
     margin: 0 auto;
-    padding-top: 10px;
-    overflow: hidden;
+    width: 100%;
+    text-align: center;
+
 }
-.actorTitle {
-    margin: 50px auto 50px auto;
-    font-size: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.actorView {
+   
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5개의 열을 생성 */
+ 
+    
 }
-.actorFrame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.basket{
+    width: 100%;
+ 
+
 }
-.basket {
-    float: left;
-    margin-left: 30px;
-    margin-bottom: 50px;
+.actorTitle{
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+    font-size: 7vmax;
+    text-align: center;
+
 }
-.actorWho {
-    font-size: 13.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3px;
-}
-.actorRealNameWho {
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 8px;
-}
-.actorPic {
-    border-bottom: 1px solid black;
-    display: block;
+.actorRealNameWho,
+.actorWho,
+.actorWho{
+    font-family: "Anton", sans-serif;
+    
 }
 
 
 /***********************************리뷰************************/
 .todoApp {
     width: 100%;
-    max-width: 540px;
-    background: rgb(128, 155, 197);
+    max-width: 50%;
+    background-color: wheat;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
@@ -147,8 +143,12 @@ Movie Trailer */
 .todoApp > h2 {
     color: #002765;
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+    font-family: "Anton", sans-serif;
+    
 }
 
 .todoApp > h2 > img {
@@ -166,8 +166,8 @@ Movie Trailer */
 }
 
 .nameInput {
-    margin-left: 1px;
-    width: 85px;
+  
+   
     font-size: 20px;        
     flex: 1;
     border: none;
@@ -175,18 +175,19 @@ Movie Trailer */
     background: transparent;
     padding: 10px;
     font-weight: 14px;
+    border-right: 1px solid black;
 }
 
 
 .textInput {
     margin-right: 4px;
-    width: 300px;
+    
     font-size: 20px;
     flex: 1;
-    border: none;
-    outline: none;
+   
     background: transparent;
     padding: 10px;
+    border: none;
     font-weight: 14px;
 }
 
@@ -194,6 +195,7 @@ Movie Trailer */
     border: none;
     outline: none;
     padding: 16px 50px;
+    width: 20%;
     background: rgb(14, 14, 29);
     color: white;
     font-size: 16px;
@@ -203,26 +205,27 @@ Movie Trailer */
 
 
 .pwdInput {
-    margin-left: 360px;
-    width: 120px;
+    
+    
+    width:30%;
     font-size: 20px;
-    flex: 1;
+    margin-left: 70%;
     border-radius: 30px;
     padding: 10px;
     padding-left: 20px;
-    border: none;
-    outline: none;
+    align-items: end;
+    text-align: center;
+   
 }
 
 .task > li {
-    width: 420px;
-    margin-left: -45px;
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 5%;
     list-style: none;
-    font-size: 17px;
-    padding: 12px 8px 12px 50px;
-    user-select: none;
-    cursor: pointer;
-    position: relative;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+   
 }
 
 .task > li > span {

@@ -9,11 +9,11 @@ function addTask () {
         alert("All must be filled out.!");
     } else if(checkPwd(pwdInput.value)){
         let li = document.createElement("li");
-        li.style.fontSize = "20px";
+       
         li.innerHTML = `${nameInput.value}  :  ${textInput.value}`;
         listContainer.appendChild(li);
         let span = document.createElement("span");
-        span.style.fontSize = "20px";
+       
         span.innerHTML = "\u00d7";
         li.appendChild(span);
         
