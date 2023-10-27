@@ -74,7 +74,7 @@ a:active {
     font-family: "Alumni Sans Collegiate One", sans-serif;
 }
 
-.ul {
+.ul1 {
     display: flex;
     width: 100%;
     text-align: center;
@@ -111,6 +111,7 @@ Movie Trailer */
  
     
 }
+
 .basket{
     width: 100%;
  
