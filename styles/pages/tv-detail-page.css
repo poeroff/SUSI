@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+a:link {
+    text-decoration: none;
+}
+a:visited,
+a:active {
+    color: inherit;
+}
+
+.divider {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.tvRight {
+    height: 30vmax;
+    background-color: darkgray;
+    width: 50%;
+    margin-right: 10%;
+}
+.tvLeft {
+    height: 30vmax;
+    width: 40vmax;
+    margin-left: 10%;
+}
+.tvLeft img {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.tvTitle {
+    margin-top: 20%;
+    text-align: center;
+    font-family: "Anton", sans-serif;
+}
+
+.tvOverView {
+    font-size: 2vmax;
+    margin-top: 10%;
+    font-family: "Roboto Slab", serif;
+    font-size: 1vmax;
+    text-align: center;
+}
+
+.videoCss {
+    text-align: center;
+}
+
+.trailerHead {
+    font-family: "Alumni Sans Collegiate One", sans-serif;
+}
+
+ul {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+}
+li {
+    width: 100%;
+}
+
+/* ---------------------------------------------
+Movie Trailer */
+.trailerHead {
+    margin: 10px auto 10px auto;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.videoCss > i {
+    margin: 100px auto 100px auto;
+}
+.actorView {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 10px;
+    overflow: hidden;
+}
+.actorTitle {
+    margin: 50px auto 50px auto;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.actorFrame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.basket {
+    float: left;
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+.actorWho {
+    font-size: 13.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+}
+.actorRealNameWho {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.actorPic {
+    border-bottom: 1px solid black;
+    display: block;
+}
