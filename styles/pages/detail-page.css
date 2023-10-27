@@ -233,18 +233,17 @@ Movie Trailer */
 }
 
 .task > li > span {
-    margin-right: -50px;
+    margin: -7px 0px 0px 200px;
     position: absolute;
-    right: 0;
-    top: 5px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     font-size: 22px;
     color: #555;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
 }
+
 .task > li > span:hover {
     background: #edeef0;
 }
@@ -252,3 +251,43 @@ Movie Trailer */
 
 
 /*************************************리뷰****************************/
+/*팝업창 */
+.popupMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    margin: 0;
+   
+}
+
+.popup {
+    
+    margin-bottom: 950px;
+    display: none;
+    position: absolute;
+    background: white;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.nameRemember {
+    margin-top: 10px;
+    width: 200px;
+    font-size: 20px;
+}
+
+.pwdRemember {
+    margin-top: 10px;
+    width: 200px;
+    font-size: 20px;
+}
+
+.valBtn {
+    width: 60px;
+    font-size: 17px;
+}
+/* 팝업창 */
