@@ -156,7 +156,7 @@ const paintCard = (
     let url = IMG_URL + poster_path;
     paintCardDetail(titleParam, overviewParam, id, url, release_date);
   } else {
-    let url = "./assets/imgs/noimage.jpeg";
+    let url = "./assets/imgs/noimage.jpg";
     paintCardDetail(titleParam, overviewParam, id, url, release_date);
   }
 };
