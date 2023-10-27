@@ -74,7 +74,7 @@ a:active {
     font-family: "Alumni Sans Collegiate One", sans-serif;
 }
 
-.ul1 {
+.ul {
     display: flex;
     width: 100%;
     text-align: center;
@@ -127,6 +127,9 @@ Movie Trailer */
 .actorWho{
     font-family: "Anton", sans-serif;
     
+}
+.basket img{
+   
 }
 
 

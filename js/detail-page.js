@@ -137,7 +137,7 @@ const drawActorInfo = async () => {
         const actorUrl = "https://image.tmdb.org/t/p/w200";
         let actorPath = actor.profile_path;
         let actorName = actor.name;
-        let actorUrlPath = actorPath ? actorUrl + actorPath : "./assets/imgs/noimage.jpeg";
+        let actorUrlPath = actorPath ? actorUrl + actorPath : "./assets/imgs/noimage.jpg";
         let actorCharacter = actor.character;
         // =============================================
         const actorCard = document.querySelector(".actorView");
