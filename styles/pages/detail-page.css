@@ -232,7 +232,7 @@ Movie Trailer */
    
 }
 
-.task > li > span {
+.task > li > span { 
     margin: -7px 0px 0px 200px;
     position: absolute;
     width: 35px;
