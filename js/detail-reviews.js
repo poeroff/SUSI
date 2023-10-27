@@ -2,109 +2,59 @@ const nameInput = document.getElementById("nameInput");
 const textInput = document.getElementById("textInput");
 const pwdInput = document.getElementById("pwdInput");
 const listContainer = document.getElementById("listContainer");
-const popup = document.getElementById("popup1");
-const pwdRememberInput = document.getElementById("pwdRememberInput");
 
-function addInfo() {
-  if (nameInput.value === "" || textInput.value === "") {
-    alert("All must be filled out.!");
-  } else if (checkPwd(pwdInput.value)) {
-    let id = uuidv4();
-    showData(nameInput.value, textInput.value, id);
-    saveData(nameInput.value, textInput.value, id, pwdInput.value);
-    alert("Input success");
-  } else {
-    alert("Password must be at least 8 characters including English/numbers/special characters");
-  }
-  nameInput.value = "";
-  textInput.value = "";
-  pwdInput.value = "";
-}
-
-let userData = getData();
-function saveData(name, text, id, pwd) {
-  const obj = { name, text, id, pwd };
-  userData.push(obj);
-  localStorage.setItem("saveData", JSON.stringify(userData));
-}
-function getData() {
-  const getAll = localStorage.getItem("saveData");
-  if (getAll === null) {
-    return [];
-  }
-  const getItem = JSON.parse(getAll);
-  return getItem;
-}
-getData();
-
-function showReview() {
-  userData.forEach((data) => {
-    showData(data.name, data.text, data.id);
-  });
-}
-showReview();
-
-function onClick() {
-  addInfo();
-}
-
-function checkPwd(str_pwd) {
-  const reg1 = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/; 
-  return reg1.test(str_pwd); 
-}
-
-function showData(name, review, id) {
-  let li = document.createElement("li");
-  li.id = id;
-  li.style.fontSize = "20px";
-  li.innerHTML = `${name} : ${review}`;
-  listContainer.appendChild(li);
-  let span = document.createElement("span");
-  span.className = "popupClick";
-  span.style.fontSize = "20px";
-  span.innerHTML = "\u00d7";
-  li.appendChild(span);
-  inputDatacol = [];
-}
-
-
-listContainer.addEventListener(
-  "click",
-  function add(e) {
-    if (e.target.className === "popupClick") {
-      popup.style.display = "block";
-      let targetId = e.target.parentElement.getAttribute("id");
-      
-      let extIdInfo = userData.filter((data) => {
-        return data.id === targetId;
-      });
-      let userPwd = extIdInfo[0].pwd; 
-      const valBtn = document.querySelector(".valBtn");
-     
-      valBtn.addEventListener("click", () => {
-        if (pwdRememberInput.value === userPwd) {
-          alert("Password matches");
-          popup.style.display = "none";
-          let filteringData = userData.filter((data) => {
-            return data.id !== targetId;
-            })
-          localStorage.setItem("saveData", JSON.stringify(filteringData));
-          window.location.reload();
-        } else {
-          alert("The password you entered does not match.");
-        }
-      });
-      console.log(userPwd);
+//버튼을 클릭했을 때 입력한 값 띄우기 및 저장
+function addTask () {
+    if(nameInput.value ==='' || textInput.value ==='') {
+        alert("All must be filled out.!");
+    } else if(checkPwd(pwdInput.value)){
+        let li = document.createElement("li");
+       
+        li.innerHTML = `${nameInput.value}  :  ${textInput.value}`;
+        listContainer.appendChild(li);
+        let span = document.createElement("span");
+       
+        span.innerHTML = "\u00d7";
+        li.appendChild(span);
+        
+        saveData();
+        alert('Sucess');
+    } else {
+        alert("Password must be at least 8 characters including English/numbers/special characters");
     }
-  },
-  false
-);
-function uuidv4() {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    var r = (Math.random() * 16) | 0,
-      v = c == "x" ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
+    nameInput.value = "";
+    textInput.value = "";
+    pwdInput.value = "";
 }
 
-// localStorage.removeItem("saveData");   //로컬스토리지 초기화
+// span에 포함된 x표시를 누르면 댓글 삭제
+listContainer.addEventListener("click", function(e){
+    if(e.target.tagName ==="SPAN") {
+       e.target.parentElement.remove();
+    }
+    saveData();
+}, false);
+
+// 엔터키로 댓글 띄우기 및 저장
+function onClick () {
+    addTask();
+}
+
+// 댓글 로컬에 저장 및 불러오기
+function saveData () {
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+function showTask () {
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
+
+
+//비밀번호 정규식 체크 함수
+function checkPwd(str_pwd){ 
+    const reg1 =  /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/;  //비밀번호는 영어/숫자/특수문자를 포함한 8자 이상.
+    return (reg1.test(str_pwd));  //정규식과 매치되면 true, 매치되지않으면 false 반환.
+};
+
+
+// localStorage.removeItem("data");
