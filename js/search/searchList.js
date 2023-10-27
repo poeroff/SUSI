@@ -1,17 +1,13 @@
 const $results = document.querySelector(".results");
-const buttons = document.querySelector(".buttons"); // 페이지 버튼을 담을 것
+const wrapper = document.querySelector(".wrapper");
+const pagination = document.querySelector(".pagination");
+const pageBtns = document.querySelectorAll("button");
+let totalPage;
+const shownPageCnt = 10;
+const lastPageGroup = Math.ceil(totalPage / shownPageCnt);
 const IMG_URL = "https://image.tmdb.org/t/p/w500/";
 let moviesArr = [];
 let keyword;
-// movieList Page
-const pagination = document.querySelector(".pagination");
-
-// prevPage, nextPage 2개 빼줘야 함
-const pageNumbers = pagination ? pagination.childElementCount - 2 : 0;
-const pageBtns = document.querySelectorAll(".pageBtn");
-
-let totalPageNum = 0;
-const shownPageNum = 5; // 페이지네이션 보이는 개수 5개
 
 const getMovieListByPage = (e) => {
   let page = e.target.dataset.id;
@@ -22,41 +18,6 @@ const getMovieListByPage = (e) => {
   getMoiveListByKeywordAndPage(keyword, page);
 };
 
-const paintPagination = (number, direction) => {
-  const pageLink = number.querySelector(".page-link");
-  if (direction === "Next") {
-    if (Number(pageLink.innerHTML) + pageNumbers > totalPageNum) {
-      return;
-    } else {
-      pageLink.dataset.id = Number(pageLink.dataset.id) + pageNumbers;
-
-      pageLink.innerHTML = Number(pageLink.innerHTML) + pageNumbers;
-    }
-  } else if (direction === "Previous") {
-    if (Number(pageLink.innerHTML) - pageNumbers <= 0) {
-      return;
-    } else {
-      pageLink.innerHTML = Number(pageLink.innerHTML) - pageNumbers;
-    }
-  }
-};
-
-const pageNumber = document.getElementsByClassName("pageNumber");
-for (const number of pageNumber) {
-  number.addEventListener("click", getMovieListByPage);
-}
-const handlePageBtnClick = (e) => {
-  e.preventDefault();
-  for (const number of pageNumber) {
-    const direction = e.target.innerHTML;
-    paintPagination(number, direction);
-  }
-};
-
-pageBtns.forEach((pageBtn) =>
-  pageBtn.addEventListener("click", handlePageBtnClick)
-);
-
 const options = {
   method: "GET",
   headers: {
@@ -64,6 +25,16 @@ const options = {
     Authorization:
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOTIwODAzOWU5MmQ3MTAzMGE4Yzc3NWYzY2M5NTcwZSIsInN1YiI6IjY1MmYzMzJjMGNiMzM1MTZmZWM5Y2IxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1CikEcFIiKNs6E-gxClYCOhIjhOblDVhaixt2Iv1n28",
   },
+};
+
+const firstAndLastPageNum = (currentPageGroup, lastPageGroup) => {
+  let firstPage = (currentPageGroup - 1) * shownPageCnt + 1;
+  let lastPage =
+    currentPageGroup === lastPageGroup // 현재 페이지 그룹이 마지막 페이지 그룹이라면 나머지
+      ? totalPage
+      : currentPageGroup * shownPageCnt;
+
+  return { firstPage, lastPage };
 };
 
 const getMoiveListByKeywordAndPage = async (keyword, page = 1) => {
@@ -75,26 +46,67 @@ const getMoiveListByKeywordAndPage = async (keyword, page = 1) => {
   );
   const jsonData = await searchList.json();
   let { results, total_pages } = jsonData;
-  const lastPage = total_pages;
-  if (total_pages % shownPageNum) {
-    total_pages += shownPageNum - (total_pages % shownPageNum);
-  }
-  totalPageNum = total_pages;
-  if (results.length === 0) {
-    alert("Sorry no info");
-    getMoiveListByKeywordAndPage(keyword, lastPage);
-    alert(`Last page : ${lastPage}`);
-    return;
-  }
-
+  totalPage = total_pages;
+  console.log(totalPage);
+  const shownPageCnt = 10;
+  const lastPageGroup = Math.ceil(totalPage / shownPageCnt);
+  let currentPage = page;
+  let currentPageGroup = Math.ceil(currentPage / shownPageCnt);
+  console.log("currentPageGroup : " + currentPageGroup);
+  console.log("lastPageGroup : " + lastPageGroup);
+  let { firstPage, lastPage } = firstAndLastPageNum(
+    currentPageGroup,
+    lastPageGroup
+  );
   results.forEach((movie) => {
     const { title, overview, poster_path, id, release_date } = movie;
     paintCard(title, overview, poster_path, id, release_date);
   });
+  pageBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      if (e.target.className === "prev") {
+        console.log("clicked prev");
+        currentPageGroup = currentPageGroup <= 1 ? 1 : currentPageGroup - 1;
+        console.log(currentPageGroup);
+        const { firstPage, lastPage } = firstAndLastPageNum(
+          currentPageGroup,
+          lastPageGroup
+        );
+        paintPages(firstPage, lastPage);
+        return;
+      } else if (e.target.className === "next") {
+        currentPageGroup =
+          currentPageGroup >= lastPageGroup
+            ? lastPageGroup
+            : currentPageGroup + 1;
+        const { firstPage, lastPage } = firstAndLastPageNum(
+          currentPageGroup,
+          lastPageGroup
+        );
+        paintPages(firstPage, lastPage);
+        return;
+      }
+    });
+  });
+  paintPages(firstPage, lastPage);
+};
+
+const paintPages = (firstPage, lastPage) => {
+  pagination.innerHTML = "";
+  for (let i = firstPage; i <= lastPage; i++) {
+    let li = document.createElement("li");
+    li.className = "page";
+    li.dataset.id = i;
+    li.innerHTML = `<a href="#">${i}</a>`;
+    li.addEventListener("click", (e) => {
+      currentPage = parseInt(e.target.innerText);
+      getMoiveListByKeywordAndPage(keyword, currentPage);
+    });
+    pagination.append(li);
+  }
 };
 
 const paintCardDetail = (titleParam, overviewParam, id, url, release_date) => {
-  console.log(release_date);
   let card = document.createElement("div");
   card.classList.add("card");
   let wrapper = document.createElement("div");
@@ -158,4 +170,5 @@ if (window.location.href.includes("search.html")) {
   false;
 }
 
+paintPages();
 getMoiveListByKeywordAndPage(keyword);

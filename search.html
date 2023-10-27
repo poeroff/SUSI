@@ -41,8 +41,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/style.css" />
-
-    <!-- <link rel="stylesheet" href="styles/pages/movielist.css" /> -->
+    <link rel="stylesheet" href="./styles/components/pagination.css" />
     <link rel="stylesheet" href="./styles/main.css" />
 
     <title>영화 콜렉션 - 전호영</title>
@@ -75,32 +74,13 @@
 
     <div class="results"></div>
 
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item prevPageBtn pageBtn">
-          <a class="page-link">Previous</a>
-        </li>
-        <li class="page-item pageNumber">
-          <a class="page-link" href="#" data-id="1">1</a>
-        </li>
-        <li class="page-item pageNumber">
-          <a class="page-link" href="#" data-id="2">2</a>
-        </li>
-        <li class="page-item pageNumber">
-          <a class="page-link" href="#" data-id="3">3</a>
-        </li>
-        <li class="page-item pageNumber">
-          <a class="page-link" href="#" data-id="4">4</a>
-        </li>
-        <li class="page-item pageNumber">
-          <a class="page-link" href="#" data-id="5">5</a>
-        </li>
-
-        <li class="page-item nextPageBtn pageBtn">
-          <a class="page-link">Next</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="wrapper">
+      <nav class="pagination-wrapper">
+        <button class="prev"><<</button>
+        <ul class="pagination"></ul>
+        <button class="next">>></button>
+      </nav>
+    </div>
     <script type="module" src="./js/search/search.js"></script>
     <script src="./js/search/searchList.js"></script>
   </body>
