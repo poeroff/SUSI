@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="./styles/like/like.css" />
     <script src="./js/event/event.js" defer></script>
     <script src="./js/search/search.js" defer></script>
     <script src="./js/Main/main.js" defer type="module"></script>
@@ -40,7 +41,7 @@
             <!-- Button trigger modal -->
             <button
               type="button"
-              class="btn btn-primary likeBtn"
+              class="btn likeBtn"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
             >
@@ -150,9 +151,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">
-              Modal title
-            </h1>
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Likes</h1>
             <button
               type="button"
               class="btn-close"

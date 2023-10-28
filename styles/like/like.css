@@ -1,0 +1,16 @@
+.btn:active,
+.btn:focus {
+  border: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+#deleteBtn {
+  border: 0;
+  background-color: transparent;
+}
+
+#like {
+  border: 0;
+  background-color: transparent;
+  font-size: 20px;
+}

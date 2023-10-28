@@ -1,3 +1,5 @@
+import { isMovieInFavorites } from "./like/like.js";
+
 // Video를 불러오기 위한 Open API
 const divider = document.querySelector(".divider");
 const left = document.querySelector(".left");
@@ -7,6 +9,15 @@ const p0 = document.querySelector(".p0");
 const p1 = document.querySelector(".h1");
 const p2 = document.querySelector(".p2");
 const p3 = document.querySelector(".p3");
+
+// 좋아요 체크
+let FAVORITES = "favorites";
+let favoriteArr = [];
+
+if (localStorage.getItem(FAVORITES) !== null) {
+  const parsedFavoriteArr = JSON.parse(localStorage.getItem(FAVORITES));
+  favoriteArr = parsedFavoriteArr;
+}
 
 // fetch 옵션
 const options = {
@@ -30,7 +41,8 @@ const movieInfoArr = async (id) => {
       jsonData["poster_path"],
       jsonData["title"],
       jsonData["overview"],
-      jsonData["vote_average"]
+      jsonData["vote_average"],
+      jsonData["id"]
     );
     paintMovieInfo(movieInfo);
   } catch (error) {
@@ -39,6 +51,8 @@ const movieInfoArr = async (id) => {
 };
 
 const paintMovieInfo = (movieInfo) => {
+  console.log("movieInfo:");
+  console.log(movieInfo);
   // 이미지와 기타 영화 정보 웹페이지에 출력
   // console.log(movieInfo);
   // 이미지가 존재할 때
@@ -47,7 +61,14 @@ const paintMovieInfo = (movieInfo) => {
       "src",
       `https://image.tmdb.org/t/p/w500/${movieInfo[0]}`
     );
-    p1.innerHTML = `${movieInfo[1]} <button id="like">❤️</button>`;
+
+    // 좋아요 되어있는 영화인지 확인하고 있으면 빨강, 없으면 깨진하트
+
+    p1.innerHTML = `${movieInfo[1]} ${
+      isMovieInFavorites(favoriteArr, String(movieInfo[4]))
+        ? '<button id="like">💔</button>'
+        : '<button id="like">❤️</button>'
+    }`;
     // p2.innerHTML = `평점 : ${movieInfo[3]}`;
     p3.innerHTML = ` ${movieInfo[2]}`;
 
