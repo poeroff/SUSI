@@ -4,6 +4,11 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -90,64 +95,61 @@ Movie Trailer */
 .videoCss > i {
     margin: 100px auto 100px auto;
 }
-.actorView {
-    width: 1200px;
+.actorFrame{
     margin: 0 auto;
-    padding-top: 10px;
-    overflow: hidden;
+    width: 100%;
+    text-align: center;
+
 }
-.actorTitle {
-    margin: 50px auto 50px auto;
-    font-size: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.actorFrame {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.basket {
-    float: left;
-    margin-left: 30px;
-    margin-bottom: 50px;
-}
-.actorWho {
-    font-size: 13.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3px;
-}
-.actorRealNameWho {
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 8px;
-}
-.actorPic {
-    border-bottom: 1px solid black;
-    display: block;
+.actorView {
+   
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5개의 열을 생성 */
+ 
+    
 }
 
+.basket{
+    width: 100%;
+ 
+
+}
+.actorTitle{
+    font-family: 'Alumni Sans Collegiate One', sans-serif;
+    font-size: 7vmax;
+    text-align: center;
+
+}
+.actorRealNameWho,
+.actorWho,
+.actorWho{
+    font-family: "Anton", sans-serif;
+    
+}
+.basket img{
+   
+}
 
 /***********************************리뷰************************/
 .todoApp {
+   
     width: 100%;
     max-width: 50%;
     background-color: wheat;
-    margin: 100px auto 20px;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
+    margin: 0 auto;
+    padding-bottom: 10%;
+    margin-top: 5%;
+    z-index: 10;
+    border-radius: 5%;
 }
 
 .todoApp > h2 {
     color: #002765;
     display: flex;
     width: 100%;
-    display: flex;
+    position: relative;
+    font-size: 3.5vmax;
+    
     justify-content: center;
     margin-bottom: 5%;
     font-family: "Anton", sans-serif;
@@ -158,64 +160,53 @@ Movie Trailer */
     width: 30px;
     margin-left: 10px;
 }
+
 .dataBox {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
-    border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
-}
-
-.nameInput {
+    text-align: center;
+  }
   
-   
-    font-size: 20px;        
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
+  .nameInput,
+  .textInput,
+  .dataBtn {
+    margin: 10px;
     padding: 10px;
-    font-weight: 14px;
-    border-right: 1px solid black;
-}
-
-
-.textInput {
-    margin-right: 4px;
-    
-    font-size: 20px;
-    flex: 1;
-   
-    background: transparent;
+  }
+  
+  .nameInput,
+  .textInput {
+    text-align: center;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 10px;
-    border: none;
-    font-weight: 14px;
-}
-
-.dataBtn {
-    border: none;
-    outline: none;
-    padding: 16px 50px;
-    width: 20%;
-    background: rgb(14, 14, 29);
-    color: white;
     font-size: 16px;
+  }
+  
+  .dataBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    border-radius: 40px;
-}
-
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+  
+  .dataBtn:hover {
+    background-color: #0056b3;
+  }
 
 .pwdInput {
     
     
-    width:30%;
+    width:20%;
     font-size: 20px;
-    margin-left: 70%;
+    margin-left: 65%;
     border-radius: 30px;
     padding: 10px;
     padding-left: 20px;
+    
     align-items: end;
     text-align: center;
    
@@ -252,18 +243,21 @@ Movie Trailer */
 /*************************************리뷰****************************/
 /*팝업창 */
 .popupMain {
+    width: 100%;
+    
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 70vh;
-    margin: 0;
+    
+   
+    
+    z-index: 20;
+    
    
 }
 
 .popup {
     
-    margin-bottom: 950px;
     display: none;
     position: absolute;
     background: white;
@@ -280,13 +274,27 @@ Movie Trailer */
 }
 
 .pwdRemember {
-    margin-top: 10px;
-    width: 200px;
-    font-size: 20px;
-}
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+  }
 
 .valBtn {
-    width: 60px;
-    font-size: 17px;
-}
+    width: 100%;
+  
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+.valBtn:hover {
+    background-color: #0056b3;
+  }
 /* 팝업창 */

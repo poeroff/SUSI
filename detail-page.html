@@ -59,12 +59,21 @@
         <h2>Review</h2>
         <div class="dataBox">
           <input
+          class="pwdInput"
+          type="password"
+          id="pwdInput"
+          placeholder="password"
+          onkeyup="if(window.event.keyCode==13){onClick()}"
+        />
+          
+          <input
             class="nameInput"
             type="text"
             id="nameInput"
             placeholder="name"
             onkeyup="if(window.event.keyCode==13){onClick()}"
           />
+         
           <input
             class="textInput"
             type="text"
@@ -72,15 +81,21 @@
             placeholder="text"
             onkeyup="if(window.event.keyCode==13){onClick()}"
           />
+     
           <button class="dataBtn" onclick="addInfo()">SUBMIT</button>
         </div>
-        <input
-          class="pwdInput"
-          type="password"
-          id="pwdInput"
-          placeholder="password"
-          onkeyup="if(window.event.keyCode==13){onClick()}"
-        />
+        <div class="popupMain">
+          <div id="popup1" class="popup">
+            <input
+              class="pwdRemember"
+              type="password"
+              id="pwdRememberInput"
+              placeholder="password"
+            />
+            <button class="valBtn">확인</button>
+          </div>
+        </div>
+       
         <ul class="task" id="listContainer">
           <!-- <li class="checked">안녕하세요 반갑습니다.</li>
                     <li>task2</li>
@@ -89,17 +104,7 @@
       </div>
     </div>
     <!-- Popup -->
-    <div class="popupMain">
-      <div id="popup1" class="popup">
-        <input
-          class="pwdRemember"
-          type="password"
-          id="pwdRememberInput"
-          placeholder="password"
-        />
-        <button class="valBtn">확인</button>
-      </div>
-    </div>
+
     <script src="./js/detail-reviews.js"></script>
     <script src="./js/like/like.js" type="module"></script>
   </body>
