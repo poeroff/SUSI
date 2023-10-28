@@ -131,3 +131,162 @@ Movie Trailer */
     border-bottom: 1px solid black;
     display: block;
 }
+
+
+/***********************************리뷰************************/
+.todoApp {
+    width: 100%;
+    max-width: 50%;
+    background-color: wheat;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todoApp > h2 {
+    color: #002765;
+    display: flex;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+    font-family: "Anton", sans-serif;
+    
+}
+
+.todoApp > h2 > img {
+    width: 30px;
+    margin-left: 10px;
+}
+.dataBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.nameInput {
+  
+   
+    font-size: 20px;        
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+    border-right: 1px solid black;
+}
+
+
+.textInput {
+    margin-right: 4px;
+    
+    font-size: 20px;
+    flex: 1;
+   
+    background: transparent;
+    padding: 10px;
+    border: none;
+    font-weight: 14px;
+}
+
+.dataBtn {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    width: 20%;
+    background: rgb(14, 14, 29);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+
+.pwdInput {
+    
+    
+    width:30%;
+    font-size: 20px;
+    margin-left: 70%;
+    border-radius: 30px;
+    padding: 10px;
+    padding-left: 20px;
+    align-items: end;
+    text-align: center;
+   
+}
+
+.task > li {
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 5%;
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+   
+}
+
+.task > li > span { 
+    margin: -7px 0px 0px 200px;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.task > li > span:hover {
+    background: #edeef0;
+}
+
+
+
+/*************************************리뷰****************************/
+/*팝업창 */
+.popupMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    margin: 0;
+   
+}
+
+.popup {
+    
+    margin-bottom: 950px;
+    display: none;
+    position: absolute;
+    background: white;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.nameRemember {
+    margin-top: 10px;
+    width: 200px;
+    font-size: 20px;
+}
+
+.pwdRemember {
+    margin-top: 10px;
+    width: 200px;
+    font-size: 20px;
+}
+
+.valBtn {
+    width: 60px;
+    font-size: 17px;
+}
+/* 팝업창 */
