@@ -99,6 +99,7 @@ listContainer.addEventListener(
           window.location.reload();
         }
       });
+      console.log(userPwd);
     }
   },
   false

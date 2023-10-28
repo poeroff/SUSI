@@ -48,5 +48,36 @@
         <div class="actorFrame">
             <div class="actorView"></div>
         </div>
+
+
+
+        <div class = "reviewBox">
+            <div class="todoApp">
+                 <h2>Review</h2>
+                 <div class="dataBox">
+                    <input class = "nameInput" type="text" id="nameInput" placeholder="name" onkeyup="if(window.event.keyCode==13){onClick()}"> 
+                    <input class ="textInput" type="text" id="textInput" placeholder="text" onkeyup="if(window.event.keyCode==13){onClick()}">
+                    <button class ="dataBtn" onclick = "addInfo()">SUBMIT</button>                
+                </div>
+                <input class = "pwdInput" type="password" id="pwdInput" placeholder="password" onkeyup="if(window.event.keyCode==13){onClick()}">
+                <ul class ="task" id="listContainer">
+                    <!-- <li class="checked">안녕하세요 반갑습니다.</li>
+                    <li>task2</li>
+                    <li>task3</li> -->
+                </ul>
+            </div>   
+        </div>
+        <!-- Popup -->
+        <div class="popupMain">
+            <div id="popup1" class="popup">
+                <input class = "pwdRemember" type="password" id="pwdRememberInput" placeholder="password">
+                <button class ="valBtn">확인</button>
+        
+            </div>
+        </div>
+
+
+
+        <script src="js/tv-detail-reviews.js"></script>
     </body>
 </html>
