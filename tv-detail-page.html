@@ -1,83 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!--  Detail page header-->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>최고 평점 TV - 전호영</title>
-        <link rel="stylesheet" href="styles/pages/tv-detail-page.css" />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
+  <head>
+    <!--  Detail page header-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최고 평점 TV - 전호영</title>
+    <link rel="stylesheet" href="styles/pages/tv-detail-page.css" />
+    <link rel="stylesheet" href="./styles/like/like.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" defer src="js/tv-detail-page.js"></script>
+  </head>
+
+  <body>
+    <header class="p-3 text-bg-dark">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <ul>
+            <li><a href="/" class="Maintitle">Main</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="videoCss"></div>
+    <div class="divider">
+      <div class="tvLeft">
+        <img class="imageTv" />
+      </div>
+
+      <div class="tvRight">
+        <h1 class="tvTitle"></h1>
+        <p class="tvOverView"></p>
+      </div>
+    </div>
+    <div class="movie-list"></div>
+    <h3 class="actorTitle">Actor</h3>
+    <div class="actorFrame">
+      <div class="actorView"></div>
+    </div>
+
+    <div class="reviewBox">
+      <div class="todoApp">
+        <h2>Review</h2>
+        <div class="dataBox">
+          <input
+            class="nameInput"
+            type="text"
+            id="nameInput"
+            placeholder="name"
+            onkeyup="if(window.event.keyCode==13){onClick()}"
+          />
+          <input
+            class="textInput"
+            type="text"
+            id="textInput"
+            placeholder="text"
+            onkeyup="if(window.event.keyCode==13){onClick()}"
+          />
+          <button class="dataBtn" onclick="addInfo()">SUBMIT</button>
+        </div>
+        <input
+          class="pwdInput"
+          type="password"
+          id="pwdInput"
+          placeholder="password"
+          onkeyup="if(window.event.keyCode==13){onClick()}"
         />
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"
-        ></script>
-
-        <script type="module" defer src="js/tv-detail-page.js"></script>
-    </head>
-
-    <body>
-        <header class="p-3 text-bg-dark">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <ul>
-                        <li><a href="/" class="Maintitle">Main</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
-
-        <div class="videoCss"></div>
-        <div class="divider">
-            <div class="tvLeft">
-                <img class="imageTv" />
-            </div>
-
-            <div class="tvRight">
-                <h1 class="tvTitle"></h1>
-                <p class="tvOverView"></p>
-            </div>
-        </div>
-        <div class="movie-list"></div>
-        <h3 class="actorTitle">Actor</h3>
-        <div class="actorFrame">
-            <div class="actorView"></div>
-        </div>
-
-
-
-        <div class = "reviewBox">
-            <div class="todoApp">
-                 <h2>Review</h2>
-                 <div class="dataBox">
-                    <input class = "nameInput" type="text" id="nameInput" placeholder="name" onkeyup="if(window.event.keyCode==13){onClick()}"> 
-                    <input class ="textInput" type="text" id="textInput" placeholder="text" onkeyup="if(window.event.keyCode==13){onClick()}">
-                    <button class ="dataBtn" onclick = "addInfo()">SUBMIT</button>                
-                </div>
-                <input class = "pwdInput" type="password" id="pwdInput" placeholder="password" onkeyup="if(window.event.keyCode==13){onClick()}">
-                <ul class ="task" id="listContainer">
-                    <!-- <li class="checked">안녕하세요 반갑습니다.</li>
+        <ul class="task" id="listContainer">
+          <!-- <li class="checked">안녕하세요 반갑습니다.</li>
                     <li>task2</li>
                     <li>task3</li> -->
-                </ul>
-            </div>   
-        </div>
-        <!-- Popup -->
-        <div class="popupMain">
-            <div id="popup1" class="popup">
-                <input class = "pwdRemember" type="password" id="pwdRememberInput" placeholder="password">
-                <button class ="valBtn">확인</button>
-        
-            </div>
-        </div>
+        </ul>
+      </div>
+    </div>
+    <!-- Popup -->
+    <div class="popupMain">
+      <div id="popup1" class="popup">
+        <input
+          class="pwdRemember"
+          type="password"
+          id="pwdRememberInput"
+          placeholder="password"
+        />
+        <button class="valBtn">확인</button>
+      </div>
+    </div>
 
-
-
-        <script src="js/tv-detail-reviews.js"></script>
-    </body>
+    <script src="./js/tv-detail-reviews.js"></script>
+    <script src="./js/like/like.js" type="module"></script>
+  </body>
 </html>

@@ -9,7 +9,7 @@ if (localStorage.getItem(FAVORITES) !== null) {
   favoriteArr = parsedFavoriteArr;
 }
 
-const drawModal = (title, id) => {
+const drawModal = (title, id, type) => {
   const div = document.createElement("div");
   const a = document.createElement("a");
   const button = document.createElement("button");
@@ -17,7 +17,10 @@ const drawModal = (title, id) => {
   div.dataset.id = id;
   button.innerText = "❌";
   button.id = "deleteBtn";
-  a.href = `./detail-page.html?type=movie&id=${id}`;
+  a.href =
+    type === "movie"
+      ? `./detail-page.html?type=${type}&id=${id}`
+      : `./tv-detail-page.html?type=${type}&id=${id}`;
   a.innerHTML = `<span class="movie-title">${title}</span>`;
   div.append(a);
   div.appendChild(button);
@@ -25,9 +28,10 @@ const drawModal = (title, id) => {
 };
 
 const handleLikeBtnClick = () => {
+  likeBody.innerHTML = "";
   favoriteArr.forEach((movie) => {
-    const { title, id } = movie;
-    drawModal(title, id);
+    const { title, id, type } = movie;
+    drawModal(title, id, type);
   });
 };
 

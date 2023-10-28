@@ -1,9 +1,19 @@
 // Video를 불러오기 위한 Open API
+import { isMovieInFavorites } from "./like/like.js";
 const divider = document.querySelector(".divider");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
 const image = document.querySelector(".image");
 const p0 = document.querySelector(".p0");
+
+// 좋아요 체크
+let FAVORITES = "favorites";
+let favoriteArr = [];
+
+if (localStorage.getItem(FAVORITES) !== null) {
+  const parsedFavoriteArr = JSON.parse(localStorage.getItem(FAVORITES));
+  favoriteArr = parsedFavoriteArr;
+}
 
 // fetch 옵션
 let tvDetailInfo = async (tv_id) => {
@@ -38,7 +48,11 @@ const drawTvInfo = async () => {
     const tvTitleImage = document.querySelector(".imageTv");
     const tvTitleH = document.querySelector(".tvTitle");
     const tvTitleP = document.querySelector(".tvOverView");
-    tvTitleH.innerText = tvActorInfoName;
+    tvTitleH.innerHTML = `${tvActorInfoName}${
+      isMovieInFavorites(favoriteArr, String(tvId))
+        ? '<button id="like">💔</button>'
+        : '<button id="like">❤️</button>'
+    }`;
     tvTitleP.innerText = tvActorInfoOverview;
     tvTitleImage.setAttribute(
       "src",
