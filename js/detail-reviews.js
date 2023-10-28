@@ -96,9 +96,9 @@ listContainer.addEventListener(
           window.location.reload();
         } else {
           alert("The password you entered does not match.");
+          window.location.reload();
         }
       });
-      console.log(userPwd);
     }
   },
   false
