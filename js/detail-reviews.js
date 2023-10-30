@@ -57,12 +57,18 @@ function checkPwd(str_pwd) {
 function showData(name, review, id) {
   let li = document.createElement("li");
   li.id = id;
-  li.style.fontSize = "20px";
+  li.style.fontSize = "1vmax";
+
+  
+  li.style.marginBottom ="20%";
+  
   li.innerHTML = `${name} : ${review}`;
   listContainer.appendChild(li);
   let span = document.createElement("span");
   span.className = "popupClick";
   span.style.fontSize = "20px";
+  span.style.marginLeft= "0px ";
+  
   span.innerHTML = "\u00d7";
   li.appendChild(span);
   inputDatacol = [];

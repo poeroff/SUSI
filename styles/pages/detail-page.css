@@ -301,4 +301,10 @@ Movie Trailer */
 .valBtn:hover {
     background-color: #0056b3;
   }
+
+.popupClick{
+    margin:  0 auto;
+}
+
+
 /* 팝업창 */
